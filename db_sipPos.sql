@@ -34,15 +34,6 @@ CREATE TABLE `categories` (
   `updatedAt` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `categories`
---
-
-INSERT INTO `categories` (`id`, `name`, `createdAt`, `updatedAt`) VALUES
-(1, 'Food', '2020-08-06 08:22:50', '2020-08-06 08:22:50'),
-(2, 'Drink', '2020-08-06 08:22:50', '2020-08-06 08:22:50'),
-(4, 'Electronic', '2020-08-06 12:41:13', '2020-08-06 12:41:13');
-
 -- --------------------------------------------------------
 
 --
@@ -57,14 +48,6 @@ CREATE TABLE `histories` (
   `orders` varchar(256) NOT NULL,
   `amount` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `histories`
---
-
-INSERT INTO `histories` (`id`, `invoice`, `cashier`, `date`, `orders`, `amount`) VALUES
-(5, '#10928', 'Joona', '2020-08-06 12:49:03', 'Ice Tea, Salad With peanut sauce', 120000),
-(6, '#98934as', 'Berhasil di update', '2020-08-07 11:01:42', 'ice, cream, tea, botol, anjas', 5000);
 
 -- --------------------------------------------------------
 
@@ -81,30 +64,6 @@ CREATE TABLE `products` (
   `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
   `updatedAt` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `products`
---
-
-INSERT INTO `products` (`id`, `name`, `price`, `image`, `idCategory`, `createdAt`, `updatedAt`) VALUES
-(8, 'Espresso', 10000, 'tes', 1, '2020-08-04 22:29:20', '2020-08-04 22:29:20'),
-(9, 'Cofee Latte', 15000, 'tes', 1, '2020-08-04 22:29:38', '2020-08-04 22:29:38'),
-(10, 'Cappucino', 5000, 'tes', 1, '2020-08-04 22:30:02', '2020-08-04 22:30:02'),
-(11, 'Red Valvet Latte', 33000, 'tes', 1, '2020-08-04 22:30:25', '2020-08-04 22:30:25'),
-(12, 'Chocho Rhum', 28000, 'tes', 2, '2020-08-04 22:30:47', '2020-08-04 22:31:13'),
-(13, 'Black Forest', 30000, 'tes', 2, '2020-08-04 22:31:41', '2020-08-04 22:31:41'),
-(14, 'Chicken Katsu Dabu-dabu', 30000, 'tes', 2, '2020-08-04 22:32:21', '2020-08-04 22:32:21'),
-(15, 'Salmon Truffle Teriyaki', 60000, 'tes', 2, '2020-08-04 22:32:42', '2020-08-04 22:32:42'),
-(25, 'Data baru', 9000, 'tes', 1, '2020-08-06 05:56:08', '2020-08-06 05:56:08'),
-(26, 'Data barux', 9000, 'tes', 1, '2020-08-06 05:56:10', '2020-08-06 05:56:10'),
-(27, 'Data baruxd', 9000, 'tes', 1, '2020-08-06 05:56:15', '2020-08-06 05:56:15'),
-(28, 'Data baruxdw', 9000, 'tes', 1, '2020-08-06 05:56:17', '2020-08-06 05:56:17'),
-(29, 'Data baruxdwr', 9000, 'tes', 1, '2020-08-06 05:56:18', '2020-08-06 05:56:18'),
-(30, 'Data baruxdwrt', 9000, 'tes', 1, '2020-08-06 05:56:20', '2020-08-06 05:56:20'),
-(31, 'Data baruxdwrt', 9000, 'tes', 1, '2020-08-06 07:35:11', '2020-08-06 07:35:11'),
-(33, 'Yellow Rice', 10000, 'https://sipposjc.netlify.app/assets/images/mobile.png', 2, '2020-08-06 08:55:22', '2020-08-06 12:07:21'),
-(34, 'Soto', 20000, 'https://sipposjc.netlify.app/assets/images/list.png', 1, '2020-08-06 12:03:04', '2020-08-06 12:03:04'),
-(37, 'Updated', 1233, 'sfdskjd', 4, '2020-08-07 10:49:59', '2020-08-07 10:49:59');
 
 -- --------------------------------------------------------
 

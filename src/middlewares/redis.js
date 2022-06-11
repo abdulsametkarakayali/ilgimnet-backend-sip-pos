@@ -1,5 +1,7 @@
 const redis = require('redis')
-const client = redis.createClient(process.env.PORT_REDIS)
+const client = redis.createClient({
+  url: process.env.URL_REDIS
+})
 const helpers = require('../helpers/helpers')
 
 module.exports = {
