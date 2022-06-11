@@ -68,7 +68,9 @@ module.exports = {
     }
   },
   redisInstance: () => {
-    const client = redis.createClient(process.env.PORT_REDIS)
+    const client = redis.createClient({
+      url: process.env.URL_REDIS
+    })
     return client
   },
   transporter: (mailinfo, cb) => {

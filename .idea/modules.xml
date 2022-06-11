@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../Sip-POS-Frontend-Vue/.idea/Sip-POS-Frontend-Vue.iml" filepath="$PROJECT_DIR$/../Sip-POS-Frontend-Vue/.idea/Sip-POS-Frontend-Vue.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/backend-sip-POS.iml" filepath="$PROJECT_DIR$/.idea/backend-sip-POS.iml" />
     </modules>
   </component>
