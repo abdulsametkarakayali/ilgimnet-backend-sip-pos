@@ -125,7 +125,7 @@ CREATE TABLE `token` (
                         `id` int(11) NOT NULL,
                         `token` varchar(256) NOT NULL,
                         `idUser` int(11) NOT NULL,
-                        `token` varchar(256) NOT NULL
+                        `type` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
