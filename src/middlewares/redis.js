@@ -5,6 +5,7 @@ const client = redis.createClient({
 const helpers = require('../helpers/helpers')
 
 module.exports = {
+  client,
   cacheAllProducts: (req, res, next) => {
     client.get('getAllProducts', (err, data) => {
       if (err) throw err

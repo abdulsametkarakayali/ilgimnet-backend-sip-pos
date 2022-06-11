@@ -52,19 +52,28 @@ INSERT INTO `categories` (`id`, `name`, `createdAt`, `updatedAt`) VALUES
 CREATE TABLE `histories` (
   `id` int(11) NOT NULL,
   `invoice` varchar(32) NOT NULL,
-  `cashier` varchar(32) NOT NULL,
-  `date` timestamp NOT NULL DEFAULT current_timestamp(),
+  `idUser` int(11) NOT NULL,
+  `isMember` int(11) NOT NULL,
   `orders` varchar(256) NOT NULL,
+  `purchaseAmount` int(11) NOT NULL,
+  `initialPrice` int(11) NOT NULL,
+  `priceAmount` int(11) NOT NULL,
   `amount` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `histories`
 --
 
-INSERT INTO `histories` (`id`, `invoice`, `cashier`, `date`, `orders`, `amount`) VALUES
-(5, '#10928', 'Joona', '2020-08-06 12:49:03', 'Ice Tea, Salad With peanut sauce', 120000),
-(6, '#98934as', 'Berhasil di update', '2020-08-07 11:01:42', 'ice, cream, tea, botol, anjas', 5000);
+CREATE TABLE `settings` (
+ `id` int(11) NOT NULL,
+ `appName` varchar(128) NOT NULL,
+ `isOpen` varchar(64) NOT NULL,
+ `isOpenMessage` varchar(256) NOT NULL,
+ `dayOne` varchar(256) NOT NULL,
+ `dayTwo` varchar(256) NOT NULL,
+ `clockOne` varchar(256) NOT NULL,
+ `clockTwo` varchar(256) NOT NULL,
+ `address` varchar(256) NOT NULL,
+ `showRole` varchar(64) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -133,14 +142,6 @@ CREATE TABLE `token` (
 --
 
 INSERT INTO `role` (`id`, `name`) VALUES
-                                      (1, 'Boss'),
-                                      (2, 'Cashier');
-
---
--- Dumping data for table `role`
---
-
-INSERT INTO `role` (`id`, `name`) VALUES
 (1, 'Boss'),
 (2, 'Cashier');
 
@@ -179,6 +180,10 @@ ALTER TABLE `categories`
 --
 ALTER TABLE `histories`
   ADD PRIMARY KEY (`id`);
+--
+
+ALTER TABLE `settings`
+    ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `products`
@@ -216,6 +221,9 @@ ALTER TABLE `categories`
 ALTER TABLE `histories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
+ALTER TABLE `settings`
+    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
 --
 -- AUTO_INCREMENT for table `products`
 --
@@ -233,6 +241,7 @@ ALTER TABLE `role`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
 
 --
 -- Constraints for dumped tables

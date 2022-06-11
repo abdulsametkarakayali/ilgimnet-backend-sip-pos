@@ -2,6 +2,9 @@ require('dotenv').config()
 const nodemailer = require('nodemailer')
 // const baseUrl = `http://localhost:${process.env.PORT}/api/v1`
 const redis = require('redis')
+
+let client;
+
 module.exports = {
   response: (res, results, status, message, links, error) => {
     const resJson = {}
@@ -68,9 +71,11 @@ module.exports = {
     }
   },
   redisInstance: () => {
-    const client = redis.createClient({
-      url: process.env.URL_REDIS
-    })
+    if (!client) {
+      client = redis.createClient({
+        url: process.env.URL_REDIS
+      })
+    }
     return client
   },
   transporter: (mailinfo, cb) => {
