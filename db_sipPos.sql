@@ -118,6 +118,17 @@ CREATE TABLE `role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Table structure for table `token`
+--
+
+CREATE TABLE `token` (
+                        `id` int(11) NOT NULL,
+                        `token` varchar(256) NOT NULL,
+                        `idUser` int(11) NOT NULL,
+                        `token` varchar(256) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
 -- Dumping data for table `role`
 --
 

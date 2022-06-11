@@ -75,9 +75,9 @@ module.exports = {
   },
   transporter: (mailinfo, cb) => {
     const transporter = nodemailer.createTransport({
-      host: 'smtp.gmail.com',
+      host: 'mail.ilgim.net',
       port: 465,
-      secure: true,
+      secure: false,
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.PASS_USER

@@ -40,7 +40,7 @@ const auth = {
             if (roleId === '3') helpers.redisInstance().del('getAllMember')
 
             const mailinfo = {
-              from: 'joonacode@gmail.com',
+              from: 'backend@ilgim.net',
               to: email,
               subject: 'Verify Email Sip POS',
               html: `<p>
