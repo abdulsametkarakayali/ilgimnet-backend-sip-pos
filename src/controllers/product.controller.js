@@ -51,12 +51,12 @@ const product = {
     let image
     if (req.file) image = req.file.path
     if (req.uploadErrorMessage) return helpers.response(res, [], 400, null, null, [req.uploadErrorMessage])
-    if (!image) return helpers.response(res, [], 400, null, null, ['Image required'])
+    //if (!image) return helpers.response(res, [], 400, null, null, ['Image required'])
 
     const newProduct = {
       name,
       price,
-      image: `${process.env.BASE_URL}/${image}`,
+      image: `${process.env.BASE_URL}/${image}?'../../uploads/no-image.png':''`,
       idCategory
     }
     productModels.insertProduct(newProduct)
