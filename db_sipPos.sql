@@ -55,10 +55,11 @@ CREATE TABLE `histories` (
   `idUser` int(11) NOT NULL,
   `isMember` int(11) NOT NULL,
   `orders` varchar(256) NOT NULL,
-  `purchaseAmount` int(11) NOT NULL,
-  `initialPrice` int(11) NOT NULL,
-  `priceAmount` int(11) NOT NULL,
-  `amount` int(11) NOT NULL
+  `purchaseAmount` varchar(32) NOT NULL,
+  `initialPrice` varchar(32) NOT NULL,
+  `priceAmount` varchar(32) NOT NULL,
+  `amount` int(11) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 --
 
