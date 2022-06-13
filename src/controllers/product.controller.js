@@ -56,7 +56,7 @@ const product = {
     const newProduct = {
       name,
       price,
-      image: `${process.env.BASE_URL}/${image}?'../../uploads/no-image.png':''`,
+      image: `${process.env.BASE_URL}/${image}'`,
       idCategory
     }
     productModels.insertProduct(newProduct)
