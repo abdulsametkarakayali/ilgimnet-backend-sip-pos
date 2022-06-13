@@ -6,8 +6,8 @@
   "scripts": {
     "fix": "standard && node app.js",
     "dev": "nodemon app.js",
-    "start": "node ./bin/www",
-    "start:dev": "nodemon ./bin/www"
+    "start:dev": "nodemon ./bin/www",
+    "start": "serve -s build"
   },
   "keywords": [],
   "author": "",
