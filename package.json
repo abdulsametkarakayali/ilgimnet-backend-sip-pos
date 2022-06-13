@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node app.js",
     "fix": "standard && node app.js",
     "dev": "nodemon app.js",
-    "start:dev": "nodemon ./bin/www",
-    "start": "serve -s build"
+    "start:dev": "nodemon ./bin/www"
+    
   },
   "keywords": [],
   "author": "",
