@@ -52,6 +52,7 @@ const checkForm = {
       purchaseAmount,
       initialPrice,
       priceAmount,
+      paymentType,
       amount
     } = req.body
     const newCheck = [{
@@ -103,6 +104,7 @@ const checkForm = {
       purchaseAmount,
       initialPrice,
       priceAmount,
+      paymentType,
       amount
     } = req.body
     const newCheck = [{

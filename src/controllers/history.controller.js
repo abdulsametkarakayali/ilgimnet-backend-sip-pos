@@ -34,6 +34,7 @@ const history = {
       purchaseAmount,
       initialPrice,
       priceAmount,
+      paymentType,
       amount
     } = req.body
 
@@ -45,6 +46,7 @@ const history = {
       purchaseAmount,
       initialPrice,
       priceAmount,
+      paymentType,
       amount
     }
     historyModels.insertHistory(newHistory)
@@ -72,6 +74,7 @@ const history = {
       purchaseAmount,
       initialPrice,
       priceAmount,
+      paymentType,
       amount
     } = req.body
 
@@ -83,6 +86,7 @@ const history = {
       purchaseAmount,
       initialPrice,
       priceAmount,
+      paymentType,
       amount
     }
     const id = req.params.id
@@ -132,6 +136,7 @@ const history = {
       purchaseAmount,
       initialPrice,
       priceAmount,
+      paymentType,
       amount
     } = req.body
 
