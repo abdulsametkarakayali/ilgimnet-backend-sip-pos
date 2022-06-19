@@ -85,7 +85,7 @@ CREATE TABLE `settings` (
 CREATE TABLE `products` (
   `id` int(11) NOT NULL,
   `name` varchar(64) NOT NULL,
-  `price` int(11) NOT NULL,
+  `price` decimal(11) NOT NULL,
   `image` varchar(256) NOT NULL,
   `idCategory` int(11) NOT NULL,
   `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
