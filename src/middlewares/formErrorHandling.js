@@ -22,6 +22,11 @@ const checkForm = {
         type: 'number'
       },
       {
+        name: 'paymentType',
+        value: paymentType,
+        type: 'number'
+      },
+      {
         name: 'Category',
         value: idCategory,
         type: 'number'
