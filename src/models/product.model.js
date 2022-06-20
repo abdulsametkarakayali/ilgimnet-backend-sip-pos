@@ -5,7 +5,7 @@ const product = {
     return queryHelper('SELECT COUNT(*) AS total FROM products')
   },
   getTotalSearch: (query) => {
-    return queryHelper('SELECT * FROM products WHERE name,barcode LIKE ?', `%${query}%`)
+    return queryHelper('SELECT * FROM products WHERE name LIKE ?', `%${query}%` +'Or barcode LIKE ?', `%${query}%`)
   },
   getAllProduct: (limit, offset, search, order, sorting) => {
     if (!order) {
