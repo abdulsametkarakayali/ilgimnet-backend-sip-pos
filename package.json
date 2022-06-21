@@ -4,11 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "fix": "standard && node app.js",
-    "dev": "nodemon app.js",
-    "start:dev": "nodemon ./bin/www"
-    
+    "dev": "react-scripts start",
+    "start": "serve -s build",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "heroku-postbuild": "npm run build"
   },
   "keywords": [],
   "author": "",
@@ -26,6 +27,7 @@
     "nodemailer": "^6.4.11",
     "nodemon": "^2.0.16",
     "rand-token": "^1.0.1",
-    "redis": "^3.0.2"
+    "redis": "^3.0.2",
+    "serve": "^13.0.2"
   }
 }
