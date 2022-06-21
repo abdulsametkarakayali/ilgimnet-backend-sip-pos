@@ -4,12 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "react-scripts start",
-    "start": "serve -s build",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "heroku-postbuild": "npm run build"
+    "start": "node index.js",
+    "fix": "standard && node app.js",
+    "dev": "nodemon app.js",
+    "start:dev": "nodemon ./bin/www"
   },
   "keywords": [],
   "author": "",
