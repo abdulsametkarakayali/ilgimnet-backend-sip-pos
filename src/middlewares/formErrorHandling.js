@@ -22,11 +22,6 @@ const checkForm = {
         type: 'number'
       },
       {
-        name: 'paymentType',
-        value: paymentType,
-        type: 'number'
-      },
-      {
         name: 'Category',
         value: idCategory,
         type: 'number'
@@ -109,7 +104,6 @@ const checkForm = {
       purchaseAmount,
       initialPrice,
       priceAmount,
-      paymentType,
       amount
     } = req.body
     const newCheck = [{
