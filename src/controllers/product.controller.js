@@ -58,7 +58,7 @@ const product = {
       name,
       price,
       barcode,
-      image: `${process.env.BASE_URL}/${image}'`,
+      //image: `${process.env.BASE_URL}/${image}'`,
       idCategory
     }
     productModels.insertProduct(newProduct)
