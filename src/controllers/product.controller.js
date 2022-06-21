@@ -45,6 +45,8 @@ const product = {
     const {
       name,
       price,
+      barcode,
+      buy_price,
       idCategory
     } = req.body
 
@@ -56,6 +58,8 @@ const product = {
     const newProduct = {
       name,
       price,
+      barcode,
+      buy_price,
       image: `${process.env.BASE_URL}/${image}`,
       idCategory
     }
@@ -78,6 +82,8 @@ const product = {
     const {
       name,
       price,
+      barcode,
+      buy_price,
       oldImage,
       idCategory
     } = req.body
@@ -99,6 +105,8 @@ const product = {
     const newProduct = {
       name,
       price,
+      barcode,
+      buy_price,
       image: finalImage,
       idCategory,
       updatedAt: new Date()
