@@ -45,20 +45,18 @@ const product = {
     const {
       name,
       price,
-      barcode,
       idCategory
     } = req.body
 
     let image
     if (req.file) image = req.file.path
     if (req.uploadErrorMessage) return helpers.response(res, [], 400, null, null, [req.uploadErrorMessage])
-    //if (!image) return helpers.response(res, [], 400, null, null, ['Image required'])
+    if (!image) return helpers.response(res, [], 400, null, null, ['Image required'])
 
     const newProduct = {
       name,
       price,
-      barcode,
-      //image: `${process.env.BASE_URL}/${image}'`,
+      image: `${process.env.BASE_URL}/${image}`,
       idCategory
     }
     productModels.insertProduct(newProduct)
@@ -81,7 +79,6 @@ const product = {
       name,
       price,
       oldImage,
-      barcode,
       idCategory
     } = req.body
 
@@ -102,7 +99,6 @@ const product = {
     const newProduct = {
       name,
       price,
-      barcode,
       image: finalImage,
       idCategory,
       updatedAt: new Date()
@@ -126,13 +122,13 @@ const product = {
 
   deleteProduct: (req, res) => {
     const id = req.params.id
-  /*  productModels.getProductById(id)
+    productModels.getProductById(id)
       .then(response => {
         const resultProduct = response[0].image
         const pathDelete = resultProduct.replace(process.env.BASE_URL, '.')
         fs.unlinkSync(pathDelete, error => {
           if (error) throw error
-        })*/
+        })
         productModels.deleteProduct(id)
           .then(response => {
             const resultProduct = response
@@ -141,9 +137,9 @@ const product = {
           }).catch(err => {
             helpers.response(res, [], err.statusCode, null, null, err)
           })
-     /* }).catch(err => {
+      }).catch(err => {
         helpers.response(res, [], err.statusCode, null, null, err)
-      })*/
+      })
   },
 
   getProductById: (req, res) => {
