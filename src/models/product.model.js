@@ -19,7 +19,6 @@ const product = {
     return queryHelper(query)
   },
   insertProduct: (newProduct) => {
-    console.log(newProduct)
     return queryHelper('INSERT INTO products SET ?', newProduct)
   },
   updateProduct: (newProduct, id) => {
