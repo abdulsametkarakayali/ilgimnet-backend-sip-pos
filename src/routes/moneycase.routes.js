@@ -6,12 +6,12 @@ const {
   isAdmin,
   isCashierOrAdmin,
   isMemberOrCashierOrAdmin
-} = require('../middlewares/auth')/*
+} = require('../middlewares/auth')
 const {
   cacheAllHistories,
   cacheMyHistories
 } = require('../middlewares/redis')
-*/
+
 const {
   checkHistory,
   checkSendInvoiceToEmail
