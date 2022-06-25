@@ -1,4 +1,4 @@
-const MoneyCaseModels = require('../models/MoneyCase.model')
+const MoneyCaseModels = require('../models/moneycase.model')
 const helpers = require('../helpers/helpers')
 
 const MoneyCase = {
