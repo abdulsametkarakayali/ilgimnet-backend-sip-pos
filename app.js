@@ -5,7 +5,7 @@ const morgan = require('morgan')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const routes = require('./src/routes')
-const PORT = process.env.PORT || 80
+const PORT = process.env.PORT 
 
 app.use(
   bodyParser.urlencoded({

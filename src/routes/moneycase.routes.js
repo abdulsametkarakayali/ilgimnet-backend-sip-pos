@@ -6,17 +6,15 @@ const {
   isAdmin,
   isCashierOrAdmin,
   isMemberOrCashierOrAdmin
-} = require('../middlewares/auth')/*
+} = require('../middlewares/auth')
 const {
   cacheAllHistories,
   cacheMyHistories
 } = require('../middlewares/redis')
-*/
 const {
   checkHistory,
   checkSendInvoiceToEmail
 } = require('../middlewares/formErrorHandling')
-
 router
   .get('/', verifyToken, isCashierOrAdmin, cacheAllHistories, moneyCaseController.getAllMoneyCase)
   .post('/', verifyToken, isCashierOrAdmin, checkHistory, moneyCaseController.insertMoneyCase)
