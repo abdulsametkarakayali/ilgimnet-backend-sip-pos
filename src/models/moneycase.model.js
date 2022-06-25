@@ -1,0 +1,24 @@
+const queryHelper = require('../helpers/query')
+
+const MoneyCase = {
+  getAllMoneyCase: (order) => {
+    return queryHelper(`SELECT histories.*, users.name as cashier FROM histories JOIN users WHERE histories.idUser = users.id ORDER BY id ${!order ? 'desc' : order}`)
+  },
+  getMyMoneyCase: (order, id) => {
+    return queryHelper(`SELECT histories.*, users.name as cashier FROM histories JOIN users WHERE histories.idUser = users.id AND isMember = ${id} ORDER BY id ${!order ? 'desc' : order}`)
+  },
+  insertMoneyCase: (newMoneyCase) => {
+    return queryHelper('INSERT INTO moneycase SET ?', newMoneyCase)
+  },
+  updateMoneyCase: (newMoneyCase, id) => {
+    return queryHelper('UPDATE moneycase SET ? WHERE id = ?', [newMoneyCase, id])
+  },
+  deleteMoneyCase: (id) => {
+    return queryHelper('DELETE FROM moneycase WHERE id = ?', id)
+  },
+  getMoneyCaseById: (id) => {
+    return queryHelper('SELECT * FROM moneycase WHERE id = ?', id)
+  }
+}
+
+module.exports = MoneyCase
