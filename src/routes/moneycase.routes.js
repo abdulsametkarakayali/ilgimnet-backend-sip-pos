@@ -18,7 +18,7 @@ const {
 } = require('../middlewares/formErrorHandling')
 
 router
-  .get('/', verifyToken, isCashierOrAdmin, cacheAllHistories, moneyCaseController.getAllHistory)
+  .get('/', verifyToken, isCashierOrAdmin, cacheAllHistories, moneyCaseController.getAllMoneyCase)
   .post('/', verifyToken, isCashierOrAdmin, checkHistory, moneyCaseController.insertMoneyCase)
   .post('/send-email-receipt', verifyToken, isCashierOrAdmin, checkSendInvoiceToEmail, moneyCaseController.sendEmailMember)
   .patch('/:id', verifyToken, isAdmin, checkHistory, moneyCaseController.updateHistory)
