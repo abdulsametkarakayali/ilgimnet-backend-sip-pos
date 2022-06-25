@@ -4,6 +4,7 @@ const helpers = require('../helpers/helpers')
 const MoneyCase = {
   getAllMoneyCase: (req, res) => {
     const order = req.query.order
+    console.log(order)
     MoneyCaseModels.getAllMoneyCase(order)
       .then(response => {
         const resultMoneyCase = response
