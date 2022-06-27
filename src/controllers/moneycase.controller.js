@@ -134,10 +134,10 @@ const MoneyCase = {
   },
   updateCaseStatus: (req, res) => {
     const {
-      statust
+      status 
     } = req.body
     const newStatus = {
-      statust
+      status
     }
     const id = req.params.id
     MoneyCaseModels.updateCaseStatus(newStatus, id)
