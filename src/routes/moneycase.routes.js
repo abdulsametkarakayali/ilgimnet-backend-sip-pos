@@ -19,5 +19,5 @@ router
 .get('/', verifyToken, isCashierOrAdmin, cacheAllHistories, moneyCaseController.getAllMoneyCase)
 .get('/casetatus', verifyToken, isCashierOrAdmin, cacheAllHistories, moneyCaseController.getAllMoneyCase)
 .post('/', verifyToken, isCashierOrAdmin, checkHistory, moneyCaseController.insertMoneyCase)
-.patch('/casetatus', verifyToken, isCashierOrAdmin, checkHistory, moneyCaseController.updateCaseStatus)
+
 module.exports = router
