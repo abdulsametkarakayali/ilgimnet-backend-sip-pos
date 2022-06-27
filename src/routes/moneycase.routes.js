@@ -16,7 +16,7 @@ const {
 } = require('../middlewares/formErrorHandling')
 router
 .get('/', verifyToken, isCashierOrAdmin, cacheAllHistories, moneyCaseController.getAllMoneyCase)
-.get('/casetatus', verifyToken, isCashierOrAdmin, moneyCaseController.getCaseStatus)
+.get('/casestatus', verifyToken, isCashierOrAdmin, moneyCaseController.getCaseStatus)
 .post('/', verifyToken, isCashierOrAdmin, checkHistory, moneyCaseController.insertMoneyCase)
-.patch('/casetatus/:id', verifyToken, isCashierOrAdmin, moneyCaseController.updateCaseStatus)
+.patch('/casestatus/:id', verifyToken, isCashierOrAdmin, moneyCaseController.updateCaseStatus)
 module.exports = router
