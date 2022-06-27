@@ -140,7 +140,7 @@ const MoneyCase = {
       status
     }
     const id = req.params.id
-    MoneyCaseModels.updateCaseStatus(newStatus, id)
+    MoneyCaseModels.updateCaseStatus(id,newStatus)
       .then(response => {
            const resultCaseStatus = response
             helpers.response(res, resultCaseStatus, res.statusCode, helpers.status.update, null)
