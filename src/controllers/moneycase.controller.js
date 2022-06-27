@@ -134,7 +134,7 @@ const MoneyCase = {
   },
   updateCaseStatus: (req, res) => {
     const {
-      name
+      statust
     } = req.body
     const newStatus = {
       statust
