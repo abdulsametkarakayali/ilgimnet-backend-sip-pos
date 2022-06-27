@@ -15,6 +15,7 @@ const MoneyCase = {
   },
   updateCaseStatus: (newStatus) => {
     return queryHelper('UPDATE casestatus	SET ? WHERE id = 1',newStatus)
+    console.log(newStatus)
   },
   deleteMoneyCase: (id) => {
     return queryHelper('DELETE FROM moneycase WHERE id = ?', id)
