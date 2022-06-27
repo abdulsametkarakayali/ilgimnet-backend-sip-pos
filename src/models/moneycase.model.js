@@ -13,7 +13,7 @@ const MoneyCase = {
   insertMoneyCase: (newMoneyCase) => {
     return queryHelper('INSERT INTO moneycase SET ?', newMoneyCase)
   },
-  updateCaseStatus: (id,newStatus,) => {
+  updateCaseStatus: (id,newStatus) => {
     return queryHelper('UPDATE casestatus	 SET ? WHERE id = ?', [id,newStatus])
   },
   deleteMoneyCase: (id) => {
