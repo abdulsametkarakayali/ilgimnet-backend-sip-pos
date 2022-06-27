@@ -17,7 +17,7 @@ const MoneyCase = {
     MoneyCaseModels.getCaseStatus()
       .then(response => {
         const resultMoneyCaseStatus = response
-        helpers.redisInstance().setex('getAllMoneyCases', 60 * 60 * 12, JSON.stringify(resultMoneyCaseStatus))
+        helpers.redisInstance().setex('getCaseStatus', 60 * 60 * 12, JSON.stringify(resultMoneyCaseStatus))
         helpers.response(res, resultMoneyCaseStatus, res.statusCode, helpers.status.found, null)
       }).catch(err => {
         helpers.response(res, [], err.statusCode, null, null, err)
