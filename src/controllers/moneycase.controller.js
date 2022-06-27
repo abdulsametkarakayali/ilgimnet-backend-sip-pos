@@ -3,9 +3,7 @@ const helpers = require('../helpers/helpers')
 
 const MoneyCase = {
   getAllMoneyCase: (req, res) => {
-    const order = req.query.order
-    console.log(order)
-    MoneyCaseModels.getAllMoneyCase(order)
+    MoneyCaseModels.getAllMoneyCase()
       .then(response => {
         const resultMoneyCase = response
         helpers.redisInstance().setex('getAllMoneyCases', 60 * 60 * 12, JSON.stringify(resultMoneyCase))
