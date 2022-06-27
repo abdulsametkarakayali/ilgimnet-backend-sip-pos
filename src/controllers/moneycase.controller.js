@@ -132,6 +132,22 @@ const MoneyCase = {
         helpers.response(res, [], err.statusCode, null, null, err)
       })
   },
+  updateCaseStatus: (req, res) => {
+    const {
+      name
+    } = req.body
+    const newStatus = {
+      statust
+    }
+    const id = req.params.id
+    MoneyCaseModels.updateCategory(newStatus, id)
+      .then(response => {
+           const resultCaseStatus = response
+            helpers.response(res, resultCaseStatus, res.statusCode, helpers.status.update, null)
+      }).catch(err => {
+        helpers.response(res, [], err.statusCode, null, null, err)
+      })
+  },
 }
 
 module.exports = MoneyCase
