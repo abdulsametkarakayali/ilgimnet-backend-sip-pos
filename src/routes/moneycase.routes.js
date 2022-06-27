@@ -18,5 +18,5 @@ router
 .get('/', verifyToken, isCashierOrAdmin, cacheAllHistories, moneyCaseController.getAllMoneyCase)
 .get('/casestatus', verifyToken, isCashierOrAdmin, moneyCaseController.getCaseStatus)
 .post('/', verifyToken, isCashierOrAdmin, checkHistory, moneyCaseController.insertMoneyCase)
-.patch('/casestatus/:id', verifyToken, isCashierOrAdmin, moneyCaseController.updateCaseStatus)
+.patch('/casestatus', verifyToken, isCashierOrAdmin, moneyCaseController.updateCaseStatus)
 module.exports = router
