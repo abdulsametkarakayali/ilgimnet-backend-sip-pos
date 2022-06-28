@@ -5,13 +5,13 @@ const product = {
     return queryHelper('SELECT COUNT(*) AS total FROM products')
   },
   getTotalSearch: (query) => {
-    return queryHelper('SELECT * FROM products WHERE barcode LIKE ?', `%${query}%`)
+    return queryHelper('SELECT * FROM products WHERE name LIKE ?', `%${query}%`)
   },
   getAllProduct: (limit, offset, search, order, sorting) => {
     if (!order) {
       order = 'id'
     }
-    const query = `SELECT products.*, categories.name as categoryName FROM products JOIN categories on products.idCategory = categories.id ${search ? `WHERE products.name LIKE '%${search}%'` : ''} ORDER BY ${order} ${sorting} LIMIT ${limit} OFFSET ${offset}`
+    const query = `SELECT products.*, categories.name as categoryName FROM products JOIN categories on products.idCategory = categories.id ${search ? `WHERE (products.name + products.barcode) LIKE '%${search}%'` : ''} ORDER BY ${order} ${sorting} LIMIT ${limit} OFFSET ${offset}`
     return queryHelper(query)
   },
   getAllProductNoPaging: () => {
