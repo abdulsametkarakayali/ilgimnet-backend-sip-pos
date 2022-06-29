@@ -54,7 +54,6 @@ const history = {
         const resultHistory = response
         helpers.redisInstance().del('getAllHistories')
         helpers.redisInstance().del('getMyHistories')
-       
         historyModels.getHistoryById(resultHistory.insertId)
           .then(response => {
             const resultHistory = response[0]
@@ -65,7 +64,7 @@ const history = {
       }).catch(err => {
         helpers.response(res, [], err.statusCode, null, null, err.errno === 1452 ? ['Cashier not found'] : err)
       })
-      historyModels.insertOrderDetails(newHistory)
+      //historyModels.insertOrderDetails(newHistory)
   },
   updateHistory: (req, res) => {
     const {
