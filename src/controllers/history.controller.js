@@ -58,9 +58,8 @@ const history = {
         historyModels.getHistoryById(resultHistory.insertId)
           .then(response => {
             const historyId = response.results.id
-            console.log("denemeeeeeeeeeeeeeeeee"+historyId+response);
             const resultHistory = response[0]
-            helpers.response(res, resultHistory, res.statusCode, helpers.status.insert, null)
+            helpers.response(res, historyId, res.statusCode, helpers.status.insert, null)
           }).catch(err => {
             helpers.response(res, [], err.statusCode, null, null, err)
           })
