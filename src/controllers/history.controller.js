@@ -63,7 +63,7 @@ const history = {
             helpers.response(res, [], err.statusCode, null, null, err)
           })
           setTimeout(() => {
-          historyModels.insertOrderDetails(newHistory)
+            await historyModels.insertOrderDetails(newHistory)
         },200)
       }).catch(err => {
         helpers.response(res, [], err.statusCode, null, null, err.errno === 1452 ? ['Cashier not found'] : err)
