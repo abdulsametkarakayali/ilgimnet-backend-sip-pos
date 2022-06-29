@@ -58,12 +58,11 @@ const history = {
         historyModels.getHistoryById(resultHistory.insertId)
           .then(response => {
             const resultHistory = response[0]
-            const id =resultHistory.id
-            console.log(id)
             helpers.response(res, resultHistory, res.statusCode, helpers.status.insert, null)
           }).catch(err => {
             helpers.response(res, [], err.statusCode, null, null, err)
           })
+          historyModels.insertOrderDetails(newHistory)
       }).catch(err => {
         helpers.response(res, [], err.statusCode, null, null, err.errno === 1452 ? ['Cashier not found'] : err)
       })
@@ -130,6 +129,40 @@ const history = {
         helpers.response(res, [], err.statusCode, null, null, err)
       })
   },
+
+
+  insertOrderDetails: (req, res) => {
+    const {
+      productID,
+      price,
+      quantity,
+      discount,
+      total,
+      orderDetailID
+    } = req.body
+
+    const newOrderList = {
+      productID,
+      price,
+      quantity,
+      discount,
+      total,
+      orderDetailID
+    }
+    historyModels.insertOrderDetails(newOrderList)
+      .then(response => {
+        const resultHistory = response
+          .then(response => {
+            const resultHistory = response[0]
+            helpers.response(res, resultHistory, res.statusCode, helpers.status.insert, null)
+          }).catch(err => {
+            helpers.response(res, [], err.statusCode, null, null, err)
+          })
+      }).catch(err => {
+        helpers.response(res, [], err.statusCode, null, null, err.errno === 1452 ? ['Cashier not found'] : err)
+      })
+  },
+
   sendEmailMember: (req, res) => {
     const {
       invoice,
