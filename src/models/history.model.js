@@ -10,12 +10,9 @@ const history = {
   insertHistory: (newHistory) => {
     return queryHelper('INSERT INTO histories SET ?', newHistory)
   },
-
   insertOrderDetails: (newOrderList) => {
     return queryHelper('INSERT INTO orderdetails SET ?', newOrderList)
   },
-  
-
   updateHistory: (newHistory, id) => {
     return queryHelper('UPDATE histories SET ? WHERE id = ?', [newHistory, id])
   },
