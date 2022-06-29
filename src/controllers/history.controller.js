@@ -54,8 +54,11 @@ const history = {
         const resultHistory = response
         helpers.redisInstance().del('getAllHistories')
         helpers.redisInstance().del('getMyHistories')
+        console.log
         historyModels.getHistoryById(resultHistory.insertId)
           .then(response => {
+            const historyId = response.results.id
+            console.log("denemeeeeeeeeeeeeeeeee"+historyId+response);
             const resultHistory = response[0]
             helpers.response(res, resultHistory, res.statusCode, helpers.status.insert, null)
           }).catch(err => {
