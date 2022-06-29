@@ -54,7 +54,7 @@ const history = {
         const resultHistory = response
         helpers.redisInstance().del('getAllHistories')
         helpers.redisInstance().del('getMyHistories')
-        await historyModels.insertOrderDetails(newHistory)
+        historyModels.insertOrderDetails(newHistory)
         historyModels.getHistoryById(resultHistory.insertId)
           .then(response => {
             const resultHistory = response[0]
