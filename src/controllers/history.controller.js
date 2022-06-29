@@ -64,7 +64,7 @@ const history = {
           })
           setTimeout(() => {
           historyModels.insertOrderDetails(newHistory)
-        ,2000},
+        },200)
       }).catch(err => {
         helpers.response(res, [], err.statusCode, null, null, err.errno === 1452 ? ['Cashier not found'] : err)
       })
