@@ -57,8 +57,6 @@ const MoneyCase = {
     MoneyCaseModels.insertMoneyCase(newMoneyCase)
       .then(response => {
         const resultMoneyCase = response
-        helpers.redisInstance().del('getAllMoneyCases')
-        helpers.redisInstance().del('getMyMoneyCases')
         MoneyCaseModels.getMoneyCaseById(resultMoneyCase.insertId)
           .then(response => {
             const resultMoneyCase = response[0]
