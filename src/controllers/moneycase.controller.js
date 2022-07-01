@@ -54,6 +54,7 @@ const MoneyCase = {
       descriptions,
       transacter,
     }
+    console.log(req.body)
     MoneyCaseModels.insertMoneyCase(newMoneyCase)
       .then(response => {
         const resultMoneyCase = response
