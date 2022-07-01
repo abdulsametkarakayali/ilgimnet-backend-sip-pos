@@ -49,6 +49,7 @@ const history = {
       paymentType,
       amount
     }
+    
     historyModels.insertHistory(newHistory)
       .then(response => {
         const resultHistory = response

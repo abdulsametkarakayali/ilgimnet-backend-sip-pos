@@ -3,6 +3,7 @@ const router = express.Router()
 const moneyCaseController = require('../controllers/moneycase.controller')
 const {
   verifyToken,
+  isAdmin,
   isCashierOrAdmin,
   isMemberOrCashierOrAdmin
 } = require('../middlewares/auth')
@@ -17,6 +18,6 @@ const {
 router
 .get('/', verifyToken, isCashierOrAdmin, cacheAllHistories, moneyCaseController.getAllMoneyCase)
 .get('/casestatus', verifyToken, isCashierOrAdmin, moneyCaseController.getCaseStatus)
-.post('/', verifyToken, isCashierOrAdmin, checkHistory, moneyCaseController.insertMoneyCase)
+.post('/', verifyToken, isAdmin, moneyCaseController.insertMoneyCase)
 .patch('/casestatus', verifyToken, isCashierOrAdmin, moneyCaseController.updateCaseStatus)
 module.exports = router
