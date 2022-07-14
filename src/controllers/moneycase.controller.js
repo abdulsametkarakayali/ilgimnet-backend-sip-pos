@@ -52,9 +52,9 @@ const MoneyCase = {
       salesNo,
       amount,
       descriptions,
-      transacter,
+      transacter
     }
-    console.log(req.body)
+
     MoneyCaseModels.insertMoneyCase(newMoneyCase)
       .then(response => {
         const resultMoneyCase = response
@@ -96,8 +96,6 @@ const MoneyCase = {
     const id = req.params.id
     MoneyCaseModels.updateMoneyCase(newMoneyCase, id)
       .then(response => {
-        helpers.redisInstance().del('getAllMoneyCases')
-        helpers.redisInstance().del('getMyMoneyCases')
         MoneyCaseModels.getMoneyCaseById(id)
           .then(response => {
             const resultMoneyCase = response[0]
