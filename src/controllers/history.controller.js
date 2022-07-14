@@ -65,7 +65,7 @@ const history = {
       }).catch(err => {
         helpers.response(res, [], err.statusCode, null, null, err.errno === 1452 ? ['Cashier not found'] : err)
       })
-     historyModels.insertOrderDetails(resultHistory)
+     //historyModels.insertOrderDetails(resultHistory)
   },
   updateHistory: (req, res) => {
     const {
