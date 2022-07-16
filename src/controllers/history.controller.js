@@ -91,6 +91,7 @@ const history = {
       paymentType,
       amount
     }
+
     const id = req.params.id
     historyModels.updateHistory(newHistory, id)
       .then(response => {
