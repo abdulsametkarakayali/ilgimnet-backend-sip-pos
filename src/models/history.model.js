@@ -2,7 +2,7 @@ const queryHelper = require('../helpers/query')
 
 const history = {
   getAllHistory: (order) => {
-    return queryHelper(`SELECT histories.*, moneycase.*, users.name as cashier FROM histories  INNER JOIN users ON  histories.idUser = users.id  INNER JOIN moneycase ON histories.idUser = moneycase.transacter ORDER BY date ${!order ? 'desc' : order}`)
+    return queryHelper(`SELECT histories.*, users.name as cashier FROM histories JOIN users WHERE histories.idUser = users.id ORDER BY id ${!order ? 'desc' : order}`)
   },
   getMyHistory: (order, id) => {
     return queryHelper(`SELECT histories.*, users.name as cashier FROM histories JOIN users WHERE histories.idUser = users.id AND isMember = ${id} ORDER BY id ${!order ? 'desc' : order}`)
