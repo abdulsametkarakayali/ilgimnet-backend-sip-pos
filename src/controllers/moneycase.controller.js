@@ -41,7 +41,7 @@ const MoneyCase = {
       casetime,
       casetype,
       salesNo,
-      amount,
+      moneycaseamount,
       descriptions,
       transacter,
     } = req.body
@@ -50,7 +50,7 @@ const MoneyCase = {
       casetime,
       casetype,
       salesNo,
-      amount,
+      moneycaseamount,
       descriptions,
       transacter
     }
@@ -79,7 +79,7 @@ const MoneyCase = {
       initialPrice,
       priceAmount,
       paymentType,
-      amount
+      moneycaseamount
     } = req.body
 
     const newMoneyCase = {
@@ -91,7 +91,7 @@ const MoneyCase = {
       initialPrice,
       priceAmount,
       paymentType,
-      amount
+      moneycaseamount
     }
     const id = req.params.id
     MoneyCaseModels.updateMoneyCase(newMoneyCase, id)
