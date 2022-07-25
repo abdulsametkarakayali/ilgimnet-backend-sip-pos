@@ -39,7 +39,6 @@ const history = {
       amount,
       productId,
     } = req.body
-console.log(req.body,"test çalışması")
     const newHistory = {
       invoice,
       idUser,
@@ -65,15 +64,11 @@ console.log(req.body,"test çalışması")
             helpers.response(res, resultHistory, res.statusCode, helpers.status.insert, null)
 
             console.log(resultHistory)
-          
-            
             const orderList = resultHistory.orders.split(',')
             const orderPriceList = resultHistory.initialPrice.split(', ')
             const quantityList = resultHistory.purchaseAmount.split(', ')
             const productIdList = productId.split(', ')
-
             orderList.forEach((element, index) => {
-
               const newOrder = {
                 productID: productIdList[index],
                 price: orderPriceList[index],
@@ -82,11 +77,9 @@ console.log(req.body,"test çalışması")
                 total: quantityList[index] * orderPriceList[index],
                 orderDetailID: resultHistory.id,
               }
-
-              queryHelper('INSERT INTO orderdetails SET ?', newOrder)
+              historyModels.insertOrderDetails(newOrder)
+              //queryHelper('INSERT INTO orderdetails SET ?', newOrder)
             })
-        
-
           }).catch(err => {
             console.log(err)
             helpers.response(res, [], err.statusCode, null, null, err)
