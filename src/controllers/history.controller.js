@@ -64,11 +64,9 @@ const history = {
           .then(response => {
             const resultHistory = response[0]
             helpers.response(res, resultHistory, res.statusCode, helpers.status.insert, null)
-console.log(productId, 1123123123123)
             
-            console.log(resultHistory)
 
-   console.log("buraya kadar çalışıyor")
+            console.log(productId)
    
             
             const orderList = resultHistory.orders.split(',')
