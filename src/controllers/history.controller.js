@@ -78,7 +78,6 @@ const history = {
                 orderDetailID: resultHistory.id,
               }
               historyModels.insertOrderDetails(newOrder)
-              //queryHelper('INSERT INTO orderdetails SET ?', newOrder)
             })
           }).catch(err => {
             console.log(err)
