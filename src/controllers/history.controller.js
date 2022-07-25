@@ -67,6 +67,8 @@ const history = {
             
 
             console.log(productId)
+
+            return;
    
             
             const orderList = resultHistory.orders.split(',')
@@ -93,6 +95,7 @@ const history = {
             helpers.response(res, [], err.statusCode, null, null, err)
           })
       }).catch(err => {
+        console.log(err)
         helpers.response(res, [], err.statusCode, null, null, err.errno === 1452 ? ['Cashier not found'] : err)
       })
      //historyModels.insertOrderDetails(resultHistory)
