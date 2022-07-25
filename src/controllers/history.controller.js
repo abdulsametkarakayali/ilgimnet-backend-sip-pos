@@ -73,6 +73,12 @@ const history = {
             console.log(orderList, orderPriceList, quantityList)
            
 
+            orderList.forEach(element, index => {
+
+              console.log(element, index)
+
+            })
+
 
 
             // queryHelper('INSERT INTO orderdetails SET ?', newOrderList)
