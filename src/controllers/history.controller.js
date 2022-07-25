@@ -62,21 +62,19 @@ const history = {
           .then(response => {
             const resultHistory = response[0]
             helpers.response(res, resultHistory, res.statusCode, helpers.status.insert, null)
-
-            console.log(resultHistory)
             const orderList = resultHistory.orders.split(',')
             const orderPriceList = resultHistory.initialPrice.split(', ')
             const quantityList = resultHistory.purchaseAmount.split(', ')
             const productIdList = productId.split(', ')
-            orderList.forEach((element, index) => {
-              const newOrder = {
-                productID: productIdList[index],
-                price: orderPriceList[index],
-                quantity: quantityList[index],
+            orderList.map((order, i) => {
+            newOrder.push ({
+                productID: productIdList[i],
+                price: orderPriceList[i],
+                quantity: quantityList[i],
                 discount: null,
-                total: quantityList[index] * orderPriceList[index],
+                total: quantityList[i] * orderPriceList[i],
                 orderDetailID: resultHistory.id,
-              }
+              })
               historyModels.insertOrderDetails(newOrder)
             })
           }).catch(err => {
