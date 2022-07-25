@@ -63,6 +63,8 @@ const history = {
           .then(response => {
             const resultHistory = response[0]
             helpers.response(res, resultHistory, res.statusCode, helpers.status.insert, null)
+
+            console.log(resultHistory)
           
             
             const orderList = resultHistory.orders.split(',')
