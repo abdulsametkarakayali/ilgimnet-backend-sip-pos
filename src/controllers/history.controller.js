@@ -38,7 +38,7 @@ const history = {
       priceAmount,
       paymentType,
       amount,
-      porductId
+      productId,
     } = req.body
 
     const newHistory = {
@@ -51,7 +51,7 @@ const history = {
       priceAmount,
       paymentType,
       amount,
-      porductId,
+      productId,
     }
     
 
@@ -65,7 +65,7 @@ const history = {
           .then(response => {
             const resultHistory = response[0]
             helpers.response(res, resultHistory, res.statusCode, helpers.status.insert, null)
-
+console.log(productId, 1123123123123)
             
             console.log(resultHistory)
 
