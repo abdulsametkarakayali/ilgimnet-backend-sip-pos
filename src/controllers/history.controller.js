@@ -73,9 +73,9 @@ const history = {
             console.log(orderList, orderPriceList, quantityList)
            
 
-            orderList.forEach(element, index => {
+            orderList.forEach(element => {
 
-              console.log(element, index)
+              console.log(element)
 
             })
 
