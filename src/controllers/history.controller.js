@@ -86,6 +86,7 @@ const history = {
         
 
           }).catch(err => {
+            console.log(err)
             helpers.response(res, [], err.statusCode, null, null, err)
           })
       }).catch(err => {
