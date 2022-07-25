@@ -27,7 +27,6 @@ const history = {
       })
   },
   insertHistory: (req, res) => {
-    console.log(req.body, 111111)
     const {
       invoice,
       idUser,
@@ -64,17 +63,12 @@ const history = {
           .then(response => {
             const resultHistory = response[0]
             helpers.response(res, resultHistory, res.statusCode, helpers.status.insert, null)
-            
-
-            console.log(productId)
-
-            return;
-   
+          
             
             const orderList = resultHistory.orders.split(',')
             const orderPriceList = resultHistory.priceAmount.split(', ')
             const quantityList = resultHistory.purchaseAmount.split(', ')
-            const productIdList = resultHistory.productId.spit(', ')
+            const productIdList = productId.spit(', ')
 
             orderList.forEach((element, index) => {
 
