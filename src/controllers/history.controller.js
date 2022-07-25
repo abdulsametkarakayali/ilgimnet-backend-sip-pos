@@ -1,5 +1,6 @@
 const historyModels = require('../models/history.model')
 const helpers = require('../helpers/helpers')
+const queryHelper = require('../helpers/query')
 
 const history = {
   getAllHistory: (req, res) => {
@@ -81,7 +82,6 @@ const history = {
                 total: 1,
                 orderDetailID: resultHistory.id,
               }
-              console.log(newOrder)
 
               queryHelper('INSERT INTO orderdetails SET ?', newOrder)
             })
