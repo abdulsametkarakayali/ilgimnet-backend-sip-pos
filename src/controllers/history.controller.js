@@ -39,7 +39,7 @@ const history = {
       amount,
       productId,
     } = req.body
-
+console.log(req.body)
     const newHistory = {
       invoice,
       idUser,
