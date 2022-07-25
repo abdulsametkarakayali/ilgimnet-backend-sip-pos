@@ -64,42 +64,6 @@ const history = {
 
             
 
-   
-            
-            const orderList = resultHistory.orders.split(',')
-            const orderPriceList = resultHistory.priceAmount.split(', ')
-            const quantityList = resultHistory.purchaseAmount.split(', ')
-            console.log(orderList, 3)
-            console.log(orderPriceList, 4)
-            console.log(quantityList, 5)
-
-            let trya = []
-
-            orderList.forEach(element, index => {
-
-              const data = {
-                productID: 1,
-                price: orderPriceList[index],
-                quantity: quantityList[index],
-                discount: null,
-                orderDetailID: resultHistory.id
-              }
-              
-
-              trya.push(data)
-
-
-              console.log(data, 6)
-                    
-            })
-          
-
-            console.log(trya)
-
-            // add order details
-            // queryHelper('INSERT INTO orderdetails SET ?', newOrderList)
-
-
 
 
           }).catch(err => {
