@@ -68,9 +68,9 @@ const history = {
           
             
             const orderList = resultHistory.orders.split(',')
-            const orderPriceList = resultHistory.initialPrice.split(', ')
-            const quantityList = resultHistory.purchaseAmount.split(', ')
-            const productIdList = resultHistory.productId.split(', ')
+            const orderPriceList = resultHistory.initialPrice.split(',')
+            const quantityList = resultHistory.purchaseAmount.split(',')
+            const productIdList = productId.split(',')
 
             orderList.forEach((element, index) => {
 
