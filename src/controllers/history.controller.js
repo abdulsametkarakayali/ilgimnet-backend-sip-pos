@@ -61,8 +61,34 @@ const history = {
             helpers.response(res, resultHistory, res.statusCode, helpers.status.insert, null)
 
             
-          console.log(resultHistory, 1)
-          console.log(resultHistory.insertId, 2)
+
+   
+            
+            const orderList = resultHistory.orders.split(',')
+            const orderPriceList = resultHistory.priceAmount.split(', ')
+            const quantityList = resultHistory.purchaseAmount.split(', ')
+            console.log(orderList)
+
+            console.log(orderList, 3)
+            console.log(orderPriceList, 4)
+            console.log(quantityList, 5)
+
+            orderList.forEach(element, index => {
+
+              const data = {
+                productID: 1,
+                price: orderPriceList[index],
+                quantity: quantityList[index],
+                discount: null,
+                orderDetailID: resultHistory.id
+              }
+
+              console.log(data)
+                    
+
+    queryHelper('INSERT INTO orderdetails SET ?', data)
+            })
+          
 
 
             // add order details
