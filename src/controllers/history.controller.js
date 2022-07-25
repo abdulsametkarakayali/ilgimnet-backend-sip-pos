@@ -73,6 +73,8 @@ const history = {
             console.log(orderPriceList, 4)
             console.log(quantityList, 5)
 
+            let trya = []
+
             orderList.forEach(element, index => {
 
               const data = {
@@ -82,14 +84,17 @@ const history = {
                 discount: null,
                 orderDetailID: resultHistory.id
               }
+              
+
+              trya.push(data)
+
 
               console.log(data, 6)
                     
-
-          queryHelper('INSERT INTO orderdetails SET ?', data)
             })
           
 
+            console.log(trya)
 
             // add order details
             // queryHelper('INSERT INTO orderdetails SET ?', newOrderList)
