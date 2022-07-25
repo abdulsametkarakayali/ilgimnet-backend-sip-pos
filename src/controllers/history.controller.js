@@ -66,6 +66,7 @@ const history = {
             const orderPriceList = resultHistory.initialPrice.split(', ')
             const quantityList = resultHistory.purchaseAmount.split(', ')
             const productIdList = productId.split(', ')
+            const newOrder = []
             orderList.map((order, i) => {
             newOrder.push ({
                 productID: productIdList[i],
