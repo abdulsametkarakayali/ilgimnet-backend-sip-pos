@@ -73,7 +73,6 @@ const history = {
             const productIdList = productId  !==null ? productId.split(','): ''
 
             orderList.forEach((element, index) => {
-
               const newOrder = {
                 productID: productIdList[index],
                 price: orderPriceList[index],
