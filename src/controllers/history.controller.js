@@ -50,6 +50,8 @@ const history = {
       amount
     }
     
+
+
     historyModels.insertHistory(newHistory)
       .then(response => {
         const resultHistory = response
@@ -68,7 +70,6 @@ const history = {
             const orderPriceList = resultHistory.priceAmount.split(', ')
             const quantityList = resultHistory.purchaseAmount.split(', ')
             console.log(orderList)
-
             console.log(orderList, 3)
             console.log(orderPriceList, 4)
             console.log(quantityList, 5)

@@ -8,9 +8,11 @@ const history = {
     return queryHelper(`SELECT histories.*, users.name as cashier FROM histories JOIN users WHERE histories.idUser = users.id AND isMember = ${id} ORDER BY id ${!order ? 'desc' : order}`)
   },
   insertHistory: (newHistory) => {
+    console.log("deneme1")
     return queryHelper('INSERT INTO histories SET ?', newHistory)
   },
   insertOrderDetails: (newOrderList) => {
+    
     return queryHelper('INSERT INTO orderdetails SET ?', newOrderList)
   },
   updateHistory: (newHistory, id) => {
