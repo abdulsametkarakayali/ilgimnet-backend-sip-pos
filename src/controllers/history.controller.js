@@ -64,6 +64,7 @@ const history = {
             helpers.response(res, resultHistory, res.statusCode, helpers.status.insert, null)
 
             
+            console.log(resultHistory)
 
    
    
@@ -79,7 +80,7 @@ const history = {
                 price: orderPriceList[index],
                 quantity: quantityList[index],
                 discount: null,
-                total: 1,
+                total: quantityList[index] * orderPriceList[index],
                 orderDetailID: resultHistory.id,
               }
 
