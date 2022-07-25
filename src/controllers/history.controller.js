@@ -69,6 +69,7 @@ const history = {
             const newOrder = []
             orderList.map((order, i) => {
             newOrder.push ({
+                productName:order,
                 productID: productIdList[i],
                 price: orderPriceList[i],
                 quantity: quantityList[i],
