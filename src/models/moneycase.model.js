@@ -2,7 +2,7 @@ const queryHelper = require('../helpers/query')
 
 const MoneyCase = {
   getAllMoneyCase: () => {
-    return queryHelper('SELECT COUNT(*) AS total FROM moneycase')
+    return queryHelper('SELECT * FROM moneycase')
   },
   getCaseStatus: () => {
     return queryHelper('SELECT * FROM casestatus')

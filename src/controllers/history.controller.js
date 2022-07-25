@@ -59,6 +59,18 @@ const history = {
           .then(response => {
             const resultHistory = response[0]
             helpers.response(res, resultHistory, res.statusCode, helpers.status.insert, null)
+
+            
+          console.log(resultHistory, 1)
+          console.log(resultHistory.insertId, 2)
+
+
+            // add order details
+            // queryHelper('INSERT INTO orderdetails SET ?', newOrderList)
+
+
+
+
           }).catch(err => {
             helpers.response(res, [], err.statusCode, null, null, err)
           })
