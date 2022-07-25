@@ -69,7 +69,6 @@ const history = {
             const orderList = resultHistory.orders.split(',')
             const orderPriceList = resultHistory.priceAmount.split(', ')
             const quantityList = resultHistory.purchaseAmount.split(', ')
-            console.log(orderList)
             console.log(orderList, 3)
             console.log(orderPriceList, 4)
             console.log(quantityList, 5)
@@ -84,10 +83,10 @@ const history = {
                 orderDetailID: resultHistory.id
               }
 
-              console.log(data)
+              console.log(data, 6)
                     
 
-    queryHelper('INSERT INTO orderdetails SET ?', data)
+          queryHelper('INSERT INTO orderdetails SET ?', data)
             })
           
 
