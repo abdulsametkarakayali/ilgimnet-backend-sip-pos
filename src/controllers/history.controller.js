@@ -49,8 +49,7 @@ const history = {
       initialPrice,
       priceAmount,
       paymentType,
-      amount,
-      productId
+      amount
     }
     
 
