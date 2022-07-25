@@ -36,7 +36,8 @@ const history = {
       initialPrice,
       priceAmount,
       paymentType,
-      amount
+      amount,
+      porductId
     } = req.body
 
     const newHistory = {
@@ -48,7 +49,8 @@ const history = {
       initialPrice,
       priceAmount,
       paymentType,
-      amount
+      amount,
+      porductId,
     }
     
 
@@ -72,11 +74,12 @@ const history = {
             const orderList = resultHistory.orders.split(',')
             const orderPriceList = resultHistory.priceAmount.split(', ')
             const quantityList = resultHistory.purchaseAmount.split(', ')
+            const productIdList = resultHistory.productID.spit(', ')
 
             orderList.forEach((element, index) => {
 
               const newOrder = {
-                productID: 1,
+                productID: productIdList[index],
                 price: orderPriceList[index],
                 quantity: quantityList[index],
                 discount: null,
