@@ -69,13 +69,13 @@ const history = {
             
             console.log(resultHistory)
 
-   
+   console.log("buraya kadar çalışıyor")
    
             
             const orderList = resultHistory.orders.split(',')
             const orderPriceList = resultHistory.priceAmount.split(', ')
             const quantityList = resultHistory.purchaseAmount.split(', ')
-            const productIdList = resultHistory.productID.spit(', ')
+            const productIdList = resultHistory.productId.spit(', ')
 
             orderList.forEach((element, index) => {
 
