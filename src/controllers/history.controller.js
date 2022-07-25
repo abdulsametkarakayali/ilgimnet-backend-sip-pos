@@ -27,6 +27,7 @@ const history = {
       })
   },
   insertHistory: (req, res) => {
+    console.log(req.body)
     const {
       invoice,
       idUser,
