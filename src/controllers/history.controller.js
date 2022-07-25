@@ -64,6 +64,20 @@ const history = {
 
             
 
+   
+            
+            const orderList = resultHistory.orders.split(',')
+            const orderPriceList = resultHistory.priceAmount.split(', ')
+            const quantityList = resultHistory.purchaseAmount.split(', ')
+
+            console.log(orderList, orderPriceList, quantityList)
+           
+
+
+
+            // queryHelper('INSERT INTO orderdetails SET ?', newOrderList)
+
+
 
 
           }).catch(err => {
