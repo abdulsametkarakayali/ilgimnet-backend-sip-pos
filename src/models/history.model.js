@@ -4,6 +4,12 @@ const history = {
   getAllHistory: (order) => {
     return queryHelper(`SELECT histories.*, users.name as cashier FROM histories JOIN users WHERE histories.idUser = users.id ORDER BY id ${!order ? 'desc' : order}`)
   },
+  getBestSellingToday: () => {
+    var day = new Date(); // Today!
+    day.setDate(day.getDate() - 1); // Yesterday!
+    return queryHelper('select * , sum(quantity) as salestotal  from  orderdetails o INNER JOIN histories h on o.orderDetailID  = h.id where  ( h.historyDate  BETWEEN '+ day.getDate() - 1+' AND '+day.getDate() + 2+') group by productID order by salestotal desc ' )
+  },
+
   getMyHistory: (order, id) => {
     return queryHelper(`SELECT histories.*, users.name as cashier FROM histories JOIN users WHERE histories.idUser = users.id AND isMember = ${id} ORDER BY id ${!order ? 'desc' : order}`)
   },

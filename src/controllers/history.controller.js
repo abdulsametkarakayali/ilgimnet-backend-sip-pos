@@ -14,6 +14,18 @@ const history = {
         helpers.response(res, [], err.statusCode, null, null, err)
       })
   },
+
+  getBestSellingToday: (req, res) => {
+    const order = req.query.order
+    historyModels.getBestSellingToday()
+      .then(response => {
+        const resultHistory = response
+        helpers.redisInstance().setex('getAllHistories', 60 * 60 * 12, JSON.stringify(resultHistory))
+        helpers.response(res, resultHistory, res.statusCode, helpers.status.found, null)
+      }).catch(err => {
+        helpers.response(res, [], err.statusCode, null, null, err)
+      })
+  },
   getMyHistory: (req, res) => {
     const order = req.query.order
     const id = req.params.id

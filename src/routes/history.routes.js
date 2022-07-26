@@ -18,7 +18,9 @@ const {
 } = require('../middlewares/formErrorHandling')
 
 router
+getBestSellingToday
   .get('/', verifyToken, isCashierOrAdmin, cacheAllHistories, historyController.getAllHistory)
+  .get('/getBestSellingToday', verifyToken, isCashierOrAdmin, cacheAllHistories, historyController.getBestSellingToday)
   .post('/', verifyToken, isCashierOrAdmin, checkHistory, historyController.insertHistory)
   .post('/send-email-receipt', verifyToken, isCashierOrAdmin, checkSendInvoiceToEmail, historyController.sendEmailMember)
   .patch('/:id', verifyToken, isAdmin, checkHistory, historyController.updateHistory)
