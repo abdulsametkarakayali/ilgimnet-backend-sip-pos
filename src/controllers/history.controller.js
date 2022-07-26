@@ -19,7 +19,7 @@ const history = {
     historyModels.getBestSellingToday()
       .then(response => {
         const resultHistory = response
-        helpers.redisInstance().setex('getAllHistories', 60 * 60 * 12, JSON.stringify(resultHistory))
+        helpers.redisInstance().setex('getBestSellingToday', 60 * 60 * 12, JSON.stringify(resultHistory))
         helpers.response(res, resultHistory, res.statusCode, helpers.status.found, null)
       }).catch(err => {
         helpers.response(res, [], err.statusCode, null, null, err)
