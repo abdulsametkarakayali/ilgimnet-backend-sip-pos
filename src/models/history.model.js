@@ -7,7 +7,6 @@ const history = {
   getBestSellingToday: () => {
     console.log("işlem başlatıldı sorgu")
     var d = new Date() // Today!
-    console.log(day+1, "tarih testi")
     return queryHelper('select * , sum(quantity) as salestotal  from  orderdetails o INNER JOIN histories h on o.orderDetailID  = h.id where  ( h.historyDate  BETWEEN '+ d.setDate(d.getDate() - 1)+' AND '+ d+')' )
   },
   getMyHistory: (order, id) => {
