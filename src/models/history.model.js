@@ -8,7 +8,7 @@ const history = {
     console.log("işlem başlatıldı sorgu")
     var day = new Date() // Today!
     day.setDate(day.getDate() - 1); // Yesterday!
-    console.log(day,day.getDate() - 1)
+    console.log(day.getDay, "tarih testi")
     return queryHelper('select * , sum(quantity) as salestotal  from  orderdetails o INNER JOIN histories h on o.orderDetailID  = h.id where  ( h.historyDate  BETWEEN '+ day.getDate() - 1+' AND '+day.getDate() + 2+')' )
   },
   getMyHistory: (order, id) => {
