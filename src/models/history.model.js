@@ -6,9 +6,9 @@ const history = {
   },
   getBestSellingToday: () => {
     console.log("işlem başlatıldı sorgu")
-    var day = new Date().toISOString().slice(0, 10) // Today!
+    var d = new Date() // Today!
     console.log(day+1, "tarih testi")
-    return queryHelper('select * , sum(quantity) as salestotal  from  orderdetails o INNER JOIN histories h on o.orderDetailID  = h.id where  ( h.historyDate  BETWEEN '+ day - 1+' AND '+day + 2+')' )
+    return queryHelper('select * , sum(quantity) as salestotal  from  orderdetails o INNER JOIN histories h on o.orderDetailID  = h.id where  ( h.historyDate  BETWEEN '+ d.setDate(d.getDate() - 1) - 1+' AND '+ d+')' )
   },
   getMyHistory: (order, id) => {
     return queryHelper(`SELECT histories.*, users.name as cashier FROM histories JOIN users WHERE histories.idUser = users.id AND isMember = ${id} ORDER BY id ${!order ? 'desc' : order}`)
