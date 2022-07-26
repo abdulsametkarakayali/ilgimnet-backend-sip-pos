@@ -16,7 +16,6 @@ const history = {
   },
 
   getBestSellingToday: (req, res) => {
-    const order = req.query.order
     historyModels.getBestSellingToday()
       .then(response => {
         const resultHistory = response
