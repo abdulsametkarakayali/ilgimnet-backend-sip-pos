@@ -2,7 +2,7 @@ const queryHelper = require('../helpers/query')
 
 const MoneyCase = {
   getAllMoneyCase: () => {
-    return queryHelper('SELECT * FROM moneycase order by Casetime asc')
+    return queryHelper('SELECT * FROM moneycase order by Id DESC')
   },
   getCaseStatus: () => {
     return queryHelper('SELECT * FROM casestatus')
