@@ -16,7 +16,7 @@ const {
   checkSendInvoiceToEmail
 } = require('../middlewares/formErrorHandling')
 router
-.get('/', verifyToken, isCashierOrAdmin, cacheAllHistories, moneyCaseController.getAllMoneyCase)
+.get('/', verifyToken, isCashierOrAdmin, moneyCaseController.getAllMoneyCase)
 .get('/casestatus', verifyToken, isCashierOrAdmin, moneyCaseController.getCaseStatus)
 .post('/', verifyToken, isAdmin, moneyCaseController.insertMoneyCase)
 .patch('/casestatus', verifyToken, isCashierOrAdmin, moneyCaseController.updateCaseStatus)
