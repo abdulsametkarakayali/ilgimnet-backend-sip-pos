@@ -97,7 +97,7 @@ const history = {
                 total: quantityList[i] * orderPriceList[i],
                 orderDetailID: resultHistory.id
               })
-              historyModels.insertOrderDetails(...newOrder ,shiftId==lastMoneycaseId)
+              historyModels.insertOrderDetails(...newOrder , {shiftId: lastMoneycaseId})
             })
           }).catch(err => {
             console.log(err)
