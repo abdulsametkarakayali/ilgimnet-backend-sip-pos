@@ -72,8 +72,8 @@ const history = {
         helpers.redisInstance().del('getMyHistories')
         moneyCaseModels.getLastInsertId()
         .then(response => {
-          const lastMoneycaseId = response[0]
-        console.log(lastMoneycaseId.id,"deneme testi")
+          const lastMoneycaseId = response[0].id
+        console.log(lastMoneycaseId,"deneme testi")
       }).catch(err => {
         console.log(err)
         helpers.response(res, [], err.statusCode, null, null, err)
@@ -96,7 +96,7 @@ const history = {
                 discount: null,
                 total: quantityList[i] * orderPriceList[i],
                 orderDetailID: resultHistory.id,
-                shiftId:lastMoneycaseId.id
+                shiftId: lastMoneycaseId.id
               })
               historyModels.insertOrderDetails(newOrder)
             })
