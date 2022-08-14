@@ -64,20 +64,19 @@ const history = {
     }
     
 
-
-    historyModels.insertHistory(newHistory)
+    moneyCaseModels.getLastInsertId()
+    .then(response => {
+      const lastMoneycaseId = response[0].id
+    console.log(lastMoneycaseId,"deneme testi")
+  }).catch(err => {
+    console.log(err)
+    helpers.response(res, [], err.statusCode, null, null, err)
+  })
+    historyModels.insertHistory(...newHistory, {shiftId: lastMoneycaseId})
       .then(response => {
         const resultHistory = response
         helpers.redisInstance().del('getAllHistories')
         helpers.redisInstance().del('getMyHistories')
-        moneyCaseModels.getLastInsertId()
-        .then(response => {
-          const lastMoneycaseId = response[0].id
-        console.log(lastMoneycaseId,"deneme testi")
-      }).catch(err => {
-        console.log(err)
-        helpers.response(res, [], err.statusCode, null, null, err)
-      })
         historyModels.getHistoryById(resultHistory.insertId)
           .then(response => {
             const resultHistory = response[0]
@@ -97,7 +96,7 @@ const history = {
                 total: quantityList[i] * orderPriceList[i],
                 orderDetailID: resultHistory.id
               })
-              historyModels.insertOrderDetails(...newOrder , {shiftId: lastMoneycaseId})
+              historyModels.insertOrderDetails(newOrder)
             })
           }).catch(err => {
             console.log(err)
