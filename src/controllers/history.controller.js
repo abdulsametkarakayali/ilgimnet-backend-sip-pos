@@ -49,7 +49,8 @@ const history = {
       priceAmount,
       paymentType,
       amount,
-      productId
+      productId,
+      shiftId
     } = req.body
     const newHistory = {
       invoice,
