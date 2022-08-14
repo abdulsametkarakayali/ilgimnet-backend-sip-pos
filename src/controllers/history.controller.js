@@ -72,6 +72,7 @@ const history = {
         helpers.redisInstance().del('getMyHistories')
         historyModels.getHistoryById(resultHistory.insertId)
        let lastMoneycaseId = moneyCaseModels.getLastInsertId()
+       console.log(lastMoneycaseId)
           .then(response => {
             const resultHistory = response[0]
             helpers.response(res, resultHistory, res.statusCode, helpers.status.insert, null)
