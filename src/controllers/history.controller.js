@@ -1,4 +1,5 @@
 const historyModels = require('../models/history.model')
+const moneyCaseModels = require('../models/moneycase.model')
 const helpers = require('../helpers/helpers')
 const queryHelper = require('../helpers/query')
 
@@ -70,6 +71,7 @@ const history = {
         helpers.redisInstance().del('getAllHistories')
         helpers.redisInstance().del('getMyHistories')
         historyModels.getHistoryById(resultHistory.insertId)
+       let lastMoneycaseId = moneyCaseModels.getLastInsertId()
           .then(response => {
             const resultHistory = response[0]
             helpers.response(res, resultHistory, res.statusCode, helpers.status.insert, null)
@@ -87,6 +89,7 @@ const history = {
                 discount: null,
                 total: quantityList[i] * orderPriceList[i],
                 orderDetailID: resultHistory.id,
+                shiftId:lastMoneycaseId
               })
               historyModels.insertOrderDetails(newOrder)
             })
