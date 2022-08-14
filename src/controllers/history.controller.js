@@ -96,7 +96,7 @@ const history = {
                 discount: null,
                 total: quantityList[i] * orderPriceList[i],
                 orderDetailID: resultHistory.id,
-                shiftId: lastMoneycaseId.id
+                shiftId: lastMoneycaseId
               })
               historyModels.insertOrderDetails(newOrder)
             })
