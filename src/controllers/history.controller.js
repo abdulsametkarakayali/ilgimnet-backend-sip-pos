@@ -66,12 +66,12 @@ const history = {
     }
     moneyCaseModels.getLastInsertId()
     .then(response => {
-    console.log(newHistory.id,"deneme testi")
+    console.log(response[0].id,"deneme testi")
   }).catch(err => {
     console.log(err)
     helpers.response(res, [], err.statusCode, null, null, err)
   })
-    historyModels.insertHistory(...newHistory,{shiftId:response[0].id})
+    historyModels.insertHistory(...newHistory, {shiftId: 165})
       .then(response => {
         const resultHistory = response
         helpers.redisInstance().del('getAllHistories')
