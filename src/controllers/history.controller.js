@@ -52,7 +52,7 @@ const history = {
       productId,
       shiftId
     } = req.body
-    const newHistory = {
+    const newHistory = [{
       invoice,
       idUser,
       isMember: isMember ? isMember : 0,
@@ -63,7 +63,7 @@ const history = {
       paymentType,
       amount,
       shiftId: 0
-    }
+    }]
     moneyCaseModels.getLastInsertId()
     .then(response => {
     console.log(response[0].id,"deneme testi")
