@@ -73,7 +73,7 @@ const history = {
     helpers.response(res, [], err.statusCode, null, null, err)
   })
   console.log(newHistory,"deneme testi 2")
-    historyModels.insertHistory(newHistory)
+    historyModels.insertHistory({...newHistory, shiftId: '22'})
       .then(response => {
         const resultHistory = response
         helpers.redisInstance().del('getAllHistories')
