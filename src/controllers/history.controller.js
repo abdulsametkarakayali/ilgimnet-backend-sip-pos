@@ -62,7 +62,7 @@ const history = {
       priceAmount,
       paymentType,
       amount,
-      shiftId
+      shiftId: 0
     }
     moneyCaseModels.getLastInsertId()
     .then(response => {
