@@ -50,6 +50,7 @@ const history = {
       paymentType,
       amount,
       productId,
+      shiftId
     } = req.body
     const newHistory = {
       invoice,
@@ -60,19 +61,20 @@ const history = {
       initialPrice,
       priceAmount,
       paymentType,
-      amount
+      amount,
+      shiftId
     }
     
 
     moneyCaseModels.getLastInsertId()
     .then(response => {
-      const lastMoneycaseId = response[0].id
-    console.log(lastMoneycaseId,"deneme testi")
+       shiftId = response[0].id
+    console.log(shiftId,"deneme testi")
   }).catch(err => {
     console.log(err)
     helpers.response(res, [], err.statusCode, null, null, err)
   })
-    historyModels.insertHistory(...newHistory, {shiftId: lastMoneycaseId})
+    historyModels.insertHistory(newHistory)
       .then(response => {
         const resultHistory = response
         helpers.redisInstance().del('getAllHistories')
