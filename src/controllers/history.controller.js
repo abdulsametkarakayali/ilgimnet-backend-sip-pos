@@ -71,7 +71,7 @@ const history = {
     console.log(err)
     helpers.response(res, [], err.statusCode, null, null, err)
   })
-    historyModels.insertHistory(...newHistory, {shiftId: 165})
+    historyModels.insertHistory(newHistory)
       .then(response => {
         const resultHistory = response
         helpers.redisInstance().del('getAllHistories')
