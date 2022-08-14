@@ -70,7 +70,6 @@ const history = {
       priceAmount,
       paymentType,
       amount,
-      lastInsertid,
       shiftId: lastInsertid
     }
 
