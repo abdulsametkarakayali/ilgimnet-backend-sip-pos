@@ -13,6 +13,18 @@ const MoneyCase = {
       })
   },
 
+  getLastInsertId: (req, res) => {
+    MoneyCaseModels.getLastInsertId()
+      .then(response => {
+        const resultLastInsertId = response
+        helpers.response(res, resultLastInsertId, res.statusCode, helpers.status.found, null)
+      }).catch(err => {
+        helpers.response(res, [], err.statusCode, null, null, err)
+      })
+  },
+  
+
+
   getCaseStatus: (req, res) => {
     MoneyCaseModels.getCaseStatus()
       .then(response => {

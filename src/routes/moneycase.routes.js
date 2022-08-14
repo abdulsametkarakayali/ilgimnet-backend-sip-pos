@@ -17,6 +17,7 @@ const {
 } = require('../middlewares/formErrorHandling')
 router
 .get('/', verifyToken, isCashierOrAdmin, moneyCaseController.getAllMoneyCase)
+.get('/getLastInsertId', verifyToken, isCashierOrAdmin, moneyCaseController.getLastInsertId)
 .get('/casestatus', verifyToken, isCashierOrAdmin, moneyCaseController.getCaseStatus)
 .post('/', verifyToken, isAdmin, moneyCaseController.insertMoneyCase)
 .patch('/casestatus', verifyToken, isCashierOrAdmin, moneyCaseController.updateCaseStatus)
