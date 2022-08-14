@@ -79,7 +79,7 @@ const history = {
             const quantityList = resultHistory.purchaseAmount.split(', ')
             const productIdList = productId.split(', ')
             const lastMoneycaseId = moneyCaseModels.getLastInsertId()
-            console.log(lastMoneycaseId)
+            console.log(lastMoneycaseId,"deneme testi")
             const newOrder = []
             orderList.map((order, i) => {
             newOrder.push ({
