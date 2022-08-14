@@ -70,6 +70,14 @@ const history = {
         const resultHistory = response
         helpers.redisInstance().del('getAllHistories')
         helpers.redisInstance().del('getMyHistories')
+        moneyCaseModels.getLastInsertId()
+        .then(response => {
+          const lastMoneycaseId = response.id
+        console.log(lastMoneycaseId,"deneme testi")
+      }).catch(err => {
+        console.log(err)
+        helpers.response(res, [], err.statusCode, null, null, err)
+      })
         historyModels.getHistoryById(resultHistory.insertId)
           .then(response => {
             const resultHistory = response[0]
@@ -78,8 +86,6 @@ const history = {
             const orderPriceList = resultHistory.initialPrice.split(', ')
             const quantityList = resultHistory.purchaseAmount.split(', ')
             const productIdList = productId.split(', ')
-            const lastMoneycaseId = moneyCaseModels.getLastInsertId()
-            console.log(lastMoneycaseId,"deneme testi")
             const newOrder = []
             orderList.map((order, i) => {
             newOrder.push ({
