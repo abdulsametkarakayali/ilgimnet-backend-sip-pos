@@ -72,7 +72,7 @@ const history = {
         helpers.redisInstance().del('getMyHistories')
         moneyCaseModels.getLastInsertId()
         .then(response => {
-          const lastMoneycaseId = response
+          const lastMoneycaseId = response[0]
         console.log(lastMoneycaseId.id,"deneme testi")
       }).catch(err => {
         console.log(err)
