@@ -52,7 +52,6 @@ const history = {
       productId,
       shiftId
     } = req.body
-    let sabit 
     const newHistory = [{
       invoice,
       idUser,
@@ -65,6 +64,7 @@ const history = {
       amount,
       shiftId:0
     }]
+    const pi = 3.14;  
     moneyCaseModels.getLastInsertId()
     .then(response => {
       newHistory[0].shiftId = response[0].id
@@ -75,7 +75,7 @@ const history = {
     console.log(err)
     helpers.response(res, [], err.statusCode, null, null, err)
   })
-  console.log(sabit,"deneme testi 2")
+  console.log(pi,"deneme testi 2")
     historyModels.insertHistory(newHistory)
       .then(response => {
         const resultHistory = response
