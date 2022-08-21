@@ -68,7 +68,7 @@ const history = {
     moneyCaseModels.getLastInsertId()
     .then(response => {
       newHistory[0].shiftId = response[0].id
-      a = response[0].id
+      global = response[0].id
     console.log(a ,"deneme testi")
     
   }).catch(err => {
