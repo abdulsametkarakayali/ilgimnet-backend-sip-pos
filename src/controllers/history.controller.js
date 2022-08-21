@@ -75,6 +75,7 @@ const history = {
     console.log(err)
     helpers.response(res, [], err.statusCode, null, null, err)
   })
+  newHistory[0].shiftId = global.a
   console.log(newHistory[0].shiftId,"deneme testi 2")
     historyModels.insertHistory(newHistory)
       .then(response => {
