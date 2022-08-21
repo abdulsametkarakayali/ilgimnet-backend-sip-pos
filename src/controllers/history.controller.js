@@ -62,7 +62,7 @@ const history = {
       priceAmount,
       paymentType,
       amount,
-      shiftId:0
+      shiftId,
     }]
     moneyCaseModels.getLastInsertId()
     .then(response => {
@@ -72,7 +72,7 @@ const history = {
     console.log(err)
     helpers.response(res, [], err.statusCode, null, null, err)
   })
-  console.log(newHistory,"deneme testi 2")
+  console.log(newHistory.shiftId,"deneme testi 2")
     historyModels.insertHistory(newHistory)
       .then(response => {
         const resultHistory = response
