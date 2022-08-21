@@ -2,7 +2,7 @@ const historyModels = require('../models/history.model')
 const moneyCaseModels = require('../models/moneycase.model')
 const helpers = require('../helpers/helpers')
 const queryHelper = require('../helpers/query')
-let shiftHistory
+var shiftHistory
 const history = {
   getAllHistory: (req, res) => {
     const order = req.query.order
@@ -49,8 +49,7 @@ const history = {
       priceAmount,
       paymentType,
       amount,
-      productId,
-      shiftId
+      productId
     } = req.body
     const newHistory = [{
       invoice,
@@ -63,8 +62,7 @@ const history = {
       paymentType,
       amount,
       shiftId:0
-    }]
-    var a = 1;  
+    }] 
     moneyCaseModels.getLastInsertId()
     .then(response => {
       shiftHistory = response[0].id
