@@ -2,7 +2,7 @@ const historyModels = require('../models/history.model')
 const moneyCaseModels = require('../models/moneycase.model')
 const helpers = require('../helpers/helpers')
 const queryHelper = require('../helpers/query')
-
+let shiftHistory
 const history = {
   getAllHistory: (req, res) => {
     const order = req.query.order
@@ -67,15 +67,14 @@ const history = {
     var a = 1;  
     moneyCaseModels.getLastInsertId()
     .then(response => {
-      newHistory[0].shiftId.push = response[0].id
-     a = response[0].id
-    console.log(a ,"deneme testi")
+      shiftHistory = response[0].id
+    console.log(shiftHistory ,"deneme testi")
     
   }).catch(err => {
     console.log(err)
     helpers.response(res, [], err.statusCode, null, null, err)
   })
-  //newHistory[0].shiftId = a
+  newHistory[0].shiftId = shiftHistory
   console.log(newHistory[0].shiftId,"deneme testi 2")
     historyModels.insertHistory(newHistory)
       .then(response => {
