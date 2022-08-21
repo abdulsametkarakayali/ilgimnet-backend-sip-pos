@@ -69,7 +69,7 @@ const history = {
     .then(response => {
       newHistory[0].shiftId = response[0].id
       pi = response[0].id
-    console.log(pi,"deneme testi")
+    console.log(pi ,"deneme testi")
     
   }).catch(err => {
     console.log(err)
