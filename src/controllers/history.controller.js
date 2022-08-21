@@ -64,12 +64,12 @@ const history = {
       amount,
       shiftId:0
     }]
-    const pi =0;  
+    global.a = 1;  
     moneyCaseModels.getLastInsertId()
     .then(response => {
       newHistory[0].shiftId = response[0].id
-      pi = response[0].id
-    console.log(pi ,"deneme testi")
+      a = response[0].id
+    console.log(a ,"deneme testi")
     
   }).catch(err => {
     console.log(err)
