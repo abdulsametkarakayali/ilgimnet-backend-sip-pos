@@ -62,7 +62,7 @@ const history = {
       priceAmount,
       paymentType,
       amount,
-      shiftId
+      shiftId:0
     }]
     moneyCaseModels.getLastInsertId()
     .then(response => {
@@ -73,7 +73,7 @@ const history = {
     helpers.response(res, [], err.statusCode, null, null, err)
   })
   console.log(newHistory.shiftId,"deneme testi 2")
-    historyModels.insertHistory(newHistory)
+    historyModels.insertHistory(...newHistory , shiftId = response[0].id)
       .then(response => {
         const resultHistory = response
         helpers.redisInstance().del('getAllHistories')
