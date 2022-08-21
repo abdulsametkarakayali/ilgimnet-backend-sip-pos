@@ -67,7 +67,7 @@ const history = {
     var a = 1;  
     moneyCaseModels.getLastInsertId()
     .then(response => {
-      newHistory[0].shiftId = response[0].id
+      newHistory[0].shiftId.push = response[0].id
      a = response[0].id
     console.log(a ,"deneme testi")
     
@@ -75,7 +75,7 @@ const history = {
     console.log(err)
     helpers.response(res, [], err.statusCode, null, null, err)
   })
-  newHistory[0].shiftId = a
+  //newHistory[0].shiftId = a
   console.log(newHistory[0].shiftId,"deneme testi 2")
     historyModels.insertHistory(newHistory)
       .then(response => {
