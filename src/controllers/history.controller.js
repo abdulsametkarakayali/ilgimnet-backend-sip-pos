@@ -97,7 +97,15 @@ const history = {
       })
      //historyModels.insertOrderDetails(resultHistory)
   },
+  
   getBestSellingToday: (req, res) => {
+    moneyCaseModels.getLastInsertId()
+    .then(response => {
+      shiftHistory = response[0].id
+  }).catch(err => {
+    console.log(err)
+    helpers.response(res, [], err.statusCode, null, null, err)
+  })
     const id = shiftHistory
     historyModels.getBestSellingToday(id)
       .then(response => {
