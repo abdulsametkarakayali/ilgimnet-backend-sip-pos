@@ -17,7 +17,8 @@ const history = {
   },
 
   getBestSellingToday: (req, res) => {
-    historyModels.getBestSellingToday()
+    const id = req.params.id
+    historyModels.getBestSellingToday(id)
       .then(response => {
         const resultHistory = response
         helpers.redisInstance().setex('getBestSellingToday', 60 * 60 * 12, JSON.stringify(resultHistory))
