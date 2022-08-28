@@ -16,17 +16,6 @@ const history = {
       })
   },
 
-  getBestSellingToday: (req, res) => {
-    const id = req.params.id
-    historyModels.getBestSellingToday(id)
-      .then(response => {
-        const resultHistory = response
-        helpers.redisInstance().setex('getBestSellingToday', 60 * 60 * 12, JSON.stringify(resultHistory))
-        helpers.response(res, resultHistory, res.statusCode, helpers.status.found, null)
-      }).catch(err => {
-        helpers.response(res, [], err.statusCode, null, null, err)
-      })
-  },
   getMyHistory: (req, res) => {
     const order = req.query.order
     const id = req.params.id
@@ -107,6 +96,17 @@ const history = {
         helpers.response(res, [], err.statusCode, null, null, err.errno === 1452 ? ['Cashier not found'] : err)
       })
      //historyModels.insertOrderDetails(resultHistory)
+  },
+  getBestSellingToday: (req, res) => {
+    const id = shiftHistory
+    historyModels.getBestSellingToday(id)
+      .then(response => {
+        const resultHistory = response
+        helpers.redisInstance().setex('getBestSellingToday', 60 * 60 * 12, JSON.stringify(resultHistory))
+        helpers.response(res, resultHistory, res.statusCode, helpers.status.found, null)
+      }).catch(err => {
+        helpers.response(res, [], err.statusCode, null, null, err)
+      })
   },
   updateHistory: (req, res) => {
     const {
