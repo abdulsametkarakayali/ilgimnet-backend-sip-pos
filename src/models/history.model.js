@@ -5,7 +5,7 @@ const history = {
     return queryHelper(`SELECT histories.*, users.name as cashier FROM histories JOIN users WHERE histories.idUser = users.id ORDER BY id ${!order ? 'desc' : order}`)
   },
   getBestSellingToday: (id) => {
-    return queryHelper('select * , sum(quantity) as salestotal  from  orderdetails o INNER JOIN histories h on o.orderDetailID  = h.id where h.shiftId ='+' '+id +' '+'group by productID order by salestotal desc ')
+    return queryHelper('select * , sum(quantity) as salestotal  from  orderdetails o INNER JOIN histories h on o.orderDetailID  = h.id where h.shiftId ='+' '+id +' '+'group by o.productID order by salestotal desc ')
   },
   getMyHistory: (order, id) => {
     return queryHelper(`SELECT histories.*, users.name as cashier FROM histories JOIN users WHERE histories.idUser = users.id AND isMember = ${id} ORDER BY id ${!order ? 'desc' : order}`)
