@@ -61,7 +61,7 @@ const history = {
     helpers.response(res, [], err.statusCode, null, null, err)
   })
   newHistory[0].shiftId = shiftHistory
-  console.log(newHistory)
+  console.log(newHistory, "deneme songörüntü")
     historyModels.insertHistory(newHistory)
       .then(response => {
         const resultHistory = response
