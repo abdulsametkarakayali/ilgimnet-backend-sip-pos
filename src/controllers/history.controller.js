@@ -62,7 +62,7 @@ const history = {
   })
   newHistory[0].shiftId = shiftHistory
   console.log(newHistory, "deneme songörüntü")
-    historyModels.insertHistory(newHistory)
+    historyModels.insertHistory(...newHistory, shiftId = shiftHistory)
       .then(response => {
         const resultHistory = response
         helpers.redisInstance().del('getAllHistories')
