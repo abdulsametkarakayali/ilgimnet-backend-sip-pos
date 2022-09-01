@@ -55,11 +55,7 @@ const history = {
     }] 
     moneyCaseModels.getLastInsertId()
     .then(response => {
-      setTimeout(() => {
-        shiftHistory = response[0].id
-        resolve('resolved');
-      }, 4000);
-     
+      shiftHistory = response[0].id
   }).catch(err => {
     console.log(err)
     helpers.response(res, [], err.statusCode, null, null, err)
