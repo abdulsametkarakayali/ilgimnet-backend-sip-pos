@@ -28,7 +28,7 @@ const history = {
         helpers.response(res, [], err.statusCode, null, null, err)
       })
   },
-  insertHistory: (req, res) => {
+  insertHistory: async (req, res) => {
     const {
       invoice,
       idUser,
@@ -39,8 +39,7 @@ const history = {
       priceAmount,
       paymentType,
       amount,
-      productId,
-      shiftId
+      productId
     } = req.body
     const newHistory = [{
       invoice,
