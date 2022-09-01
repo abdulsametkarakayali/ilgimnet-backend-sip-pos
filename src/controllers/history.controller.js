@@ -2,7 +2,7 @@ const historyModels = require('../models/history.model')
 const moneyCaseModels = require('../models/moneycase.model')
 const helpers = require('../helpers/helpers')
 const queryHelper = require('../helpers/query')
-let shiftHistory
+let shiftHistory 
 const history = {
   getAllHistory: (req, res) => {
     const order = req.query.order
@@ -61,6 +61,7 @@ const history = {
     helpers.response(res, [], err.statusCode, null, null, err)
   })
   newHistory[0].shiftId = shiftHistory
+  console.log(newHistory)
     historyModels.insertHistory(newHistory)
       .then(response => {
         const resultHistory = response
