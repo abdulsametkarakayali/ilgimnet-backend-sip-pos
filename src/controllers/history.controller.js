@@ -87,7 +87,7 @@ const history = {
                 total: quantityList[i] * orderPriceList[i],
                 orderDetailID: resultHistory.id
               })
-              console.log(resultHistory,"Yeni Sipariş Listesi Gör")
+              console.log(newOrder,"Yeni Sipariş Listesi Gör")
               historyModels.insertOrderDetails(newOrder)
             })
           }).catch(err => {
