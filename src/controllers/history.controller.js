@@ -72,15 +72,14 @@ const history = {
             const resultHistory = response[0]
             helpers.response(res, resultHistory, res.statusCode, helpers.status.insert, null)
             console.log(resultHistory,"sonucları gör")
-            const orderList = resultHistory.orders.split(',')
-            const orderPriceList = resultHistory.initialPrice.split(', ')
-            const orderProductName= resultHistory.orders.split(', ')
-            const quantityList = resultHistory.purchaseAmount.split(', ')
-            const productIdList = productId.split(', ')
+            const orderList = orders.split(',')
+            const orderPriceList = resultHistory.initialPrice.split(',')
+            const quantityList = resultHistory.purchaseAmount.split(',')
+            const productIdList = productId.split(',')
             const newOrder = []
             orderList.map((order, i) => {
             newOrder.push ({
-                productName: orderProductName[i],
+                productName: order,
                 productID: productIdList[i],
                 price: orderPriceList[i],
                 quantity: quantityList[i],
