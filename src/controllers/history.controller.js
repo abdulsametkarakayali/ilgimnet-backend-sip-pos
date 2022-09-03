@@ -88,7 +88,7 @@ const history = {
                 orderDetailID: resultHistory.id
               })
               console.log(newOrder,"Yeni Sipariş Listesi Gör")
-              historyModels.insertOrderDetails(newOrder)
+              historyModels.insertOrderDetails(newOrder[i])
             })
           }).catch(err => {
             console.log(err)
