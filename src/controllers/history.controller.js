@@ -74,7 +74,7 @@ const history = {
             console.log(resultHistory,"sonucları gör")
             const orderList = resultHistory.orders.split(',')
             const orderPriceList = resultHistory.initialPrice.split(', ')
-            const orderProductName= resultHistory.productName.split(', ')
+            const orderProductName= resultHistory.orders.split(', ')
             const quantityList = resultHistory.purchaseAmount.split(', ')
             const productIdList = productId.split(', ')
             const newOrder = []
