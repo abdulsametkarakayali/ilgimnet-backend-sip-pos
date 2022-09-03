@@ -71,14 +71,16 @@ const history = {
           .then(response => {
             const resultHistory = response[0]
             helpers.response(res, resultHistory, res.statusCode, helpers.status.insert, null)
+            console.log(resultHistory,"sonucları gör")
             const orderList = resultHistory.orders.split(',')
             const orderPriceList = resultHistory.initialPrice.split(', ')
+            const orderProductName= resultHistory.productName.split(', ')
             const quantityList = resultHistory.purchaseAmount.split(', ')
             const productIdList = productId.split(', ')
             const newOrder = []
             orderList.map((order, i) => {
             newOrder.push ({
-                productName:order,
+                productName: orderProductName[i],
                 productID: productIdList[i],
                 price: orderPriceList[i],
                 quantity: quantityList[i],
@@ -86,6 +88,7 @@ const history = {
                 total: quantityList[i] * orderPriceList[i],
                 orderDetailID: resultHistory.id
               })
+              console.log(resultHistory,"Yeni Sipariş Listesi Gör")
               historyModels.insertOrderDetails(newOrder)
             })
           }).catch(err => {
