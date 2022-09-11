@@ -78,17 +78,17 @@ const checkForm = {
       {
         name: 'Purchase amount',
         value: purchaseAmount,
-        type: 'number'
+        type: 'string'
       },
       {
         name: 'Initial price',
         value: initialPrice,
-        type: 'number'
+        type: 'string'
       },
       {
         name: 'Price amount',
         value: priceAmount,
-        type: 'number'
+        type: 'string'
       }
     ]
     errorHandling(res, newCheck, () => {
