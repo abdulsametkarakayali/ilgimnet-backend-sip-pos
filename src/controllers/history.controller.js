@@ -61,7 +61,6 @@ const history = {
     helpers.response(res, [], err.statusCode, null, null, err)
   })
   newHistory[0].shiftId = shiftHistory
-  console.log(newHistory, "deneme songörüntü")
     historyModels.insertHistory(...newHistory, shiftId = shiftHistory)
       .then(response => {
         const resultHistory = response
@@ -71,7 +70,6 @@ const history = {
           .then(response => {
             const resultHistory = response[0]
             helpers.response(res, resultHistory, res.statusCode, helpers.status.insert, null)
-            console.log(resultHistory,"sonucları gör")
             const orderList = orders.split(', ')
             const orderPriceList = resultHistory.initialPrice.split(', ')
             const quantityList = resultHistory.purchaseAmount.split(', ')
@@ -87,7 +85,6 @@ const history = {
                 total: quantityList[i] * orderPriceList[i],
                 orderDetailID: resultHistory.id
               })
-              console.log(newOrder[i],"Yeni Sipariş Listesi Gör")
               historyModels.insertOrderDetails(newOrder[i])
             })
           }).catch(err => {
