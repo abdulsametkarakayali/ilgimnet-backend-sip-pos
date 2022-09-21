@@ -99,7 +99,7 @@ const history = {
   },
   
   getBestSellingToday: (req, res) => {
-    moneyCaseModels.getLastInsertId()
+      moneyCaseModels.getLastInsertId()
     .then(response => {
       shiftHistory = response[0].id
   }).catch(err => {

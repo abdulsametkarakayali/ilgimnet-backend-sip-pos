@@ -5,7 +5,7 @@ const MoneyCase = {
     return queryHelper('SELECT * FROM moneycase order by Id DESC')
   },
   getLastInsertId: () => {
-    return queryHelper('SELECT id FROM moneycase  order by Id desc limit 1;')
+    return   queryHelper('SELECT id FROM moneycase  order by Id desc limit 1;')
   },
   getCaseStatus: () => {
     return queryHelper('SELECT * FROM casestatus')

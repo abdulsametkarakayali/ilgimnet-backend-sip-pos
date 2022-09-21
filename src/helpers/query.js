@@ -1,7 +1,7 @@
 const connection = require('../config/db.config')
 const helpers = require('./helpers')
 
-module.exports = (query, queryData = null, paramResult = null) => {
+module.exports = async (query, queryData = null, paramResult = null) => {
   return new Promise((resolve, reject) => {
     connection.query(query, queryData, (error, result) => {
       if (!error) {
