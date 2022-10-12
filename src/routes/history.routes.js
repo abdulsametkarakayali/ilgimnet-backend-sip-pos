@@ -20,7 +20,7 @@ const {
 router
   .get('/', verifyToken, isCashierOrAdmin, cacheAllHistories, historyController.getAllHistory)
   .get('/getBestSellingToday', verifyToken, isCashierOrAdmin, historyController.getBestSellingToday)
-  .post('/', verifyToken, isCashierOrAdmin, checkHistory, historyController.insertHistory)
+  .post('/', verifyToken, isCashierOrAdmin, historyController.insertHistory)
   .post('/send-email-receipt', verifyToken, isCashierOrAdmin, checkSendInvoiceToEmail, historyController.sendEmailMember)
   .patch('/:id', verifyToken, isAdmin, checkHistory, historyController.updateHistory)
   .delete('/:id', verifyToken, isAdmin, historyController.deleteHistory)
