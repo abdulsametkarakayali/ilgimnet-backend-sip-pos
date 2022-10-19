@@ -18,13 +18,13 @@ const {
 } = require('../middlewares/formErrorHandling')
 
 router
-  .get('/', verifyToken, isCashierOrAdmin, cacheAllHistories, historyController.getAllHistory)
+  .get('/', verifyToken, isCashierOrAdmin,  historyController.getAllHistory)
   .get('/getBestSellingToday', verifyToken, isCashierOrAdmin, historyController.getBestSellingToday)
   .post('/', verifyToken, isCashierOrAdmin, historyController.insertHistory)
   .post('/send-email-receipt', verifyToken, isCashierOrAdmin, checkSendInvoiceToEmail, historyController.sendEmailMember)
   .patch('/:id', verifyToken, isAdmin, checkHistory, historyController.updateHistory)
   .delete('/:id', verifyToken, isAdmin, historyController.deleteHistory)
   .get('/:id', verifyToken, isCashierOrAdmin, historyController.getHistoryById)
-  .get('/my-history/:id', verifyToken, isMemberOrCashierOrAdmin, cacheMyHistories, historyController.getMyHistory)
+  .get('/my-history/:id', verifyToken, isMemberOrCashierOrAdmin, historyController.getMyHistory)
 
 module.exports = router
