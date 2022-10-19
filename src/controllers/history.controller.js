@@ -65,8 +65,8 @@ const history = {
     historyModels.insertHistory(...newHistory, shiftId = shiftHistory)
       .then(response => {
         const resultHistory = response
-        helpers.redisInstance().del('getAllHistories')
-        helpers.redisInstance().del('getMyHistories')
+        //helpers.redisInstance().del('getAllHistories')
+        //helpers.redisInstance().del('getMyHistories')
         historyModels.getHistoryById(resultHistory.insertId)
           .then(response => {
             const resultHistory = response[0]
@@ -111,7 +111,7 @@ const history = {
     historyModels.getBestSellingToday(id)
       .then(response => {
         const resultHistory = response
-        helpers.redisInstance().setex('getBestSellingToday', 60 * 60 * 12, JSON.stringify(resultHistory))
+        //helpers.redisInstance().setex('getBestSellingToday', 60 * 60 * 12, JSON.stringify(resultHistory))
         helpers.response(res, resultHistory, res.statusCode, helpers.status.found, null)
       }).catch(err => {
         helpers.response(res, [], err.statusCode, null, null, err)
@@ -145,8 +145,8 @@ const history = {
     const id = req.params.id
     historyModels.updateHistory(newHistory, id)
       .then(response => {
-        helpers.redisInstance().del('getAllHistories')
-        helpers.redisInstance().del('getMyHistories')
+        //helpers.redisInstance().del('getAllHistories')
+        //helpers.redisInstance().del('getMyHistories')
         historyModels.getHistoryById(id)
           .then(response => {
             const resultHistory = response[0]
@@ -163,8 +163,8 @@ const history = {
     historyModels.deleteHistory(id)
       .then(response => {
         const resultHistory = response
-        helpers.redisInstance().del('getAllHistories')
-        helpers.redisInstance().del('getMyHistories')
+        //helpers.redisInstance().del('getAllHistories')
+        //helpers.redisInstance().del('getMyHistories')
         helpers.response(res, resultHistory, res.statusCode, helpers.status.delete, null)
       }).catch(err => {
         helpers.response(res, [], err.statusCode, null, null, err)
