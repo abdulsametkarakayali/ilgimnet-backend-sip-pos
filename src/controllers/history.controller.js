@@ -62,7 +62,7 @@ const history = {
     helpers.response(res, [], err.statusCode, null, null, err)
   })
   newHistory[0].shiftId = shiftHistory
-    historyModels.insertHistory(...newHistory, shiftId = shiftHistory)
+    historyModels.insertHistory(...newHistory, shiftId = newHistory[0].shiftId )
       .then(response => {
         const resultHistory = response
         //helpers.redisInstance().del('getAllHistories')
