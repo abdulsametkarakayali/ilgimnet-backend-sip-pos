@@ -157,5 +157,4 @@ const MoneyCase = {
       })
   },
 }
-
 module.exports = MoneyCase
