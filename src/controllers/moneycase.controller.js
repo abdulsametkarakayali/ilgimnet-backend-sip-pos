@@ -109,7 +109,8 @@ const MoneyCase = {
     MoneyCaseModels.updateMoneyCase(newMoneyCase, id)
       .then(response => {
         MoneyCaseModels.getMoneyCaseById(id)
-          .then(response => {
+          .then(async response => {
+            await new Promise(resolve => setTimeout(resolve, 5000));
             const resultMoneyCase = response[0]
             helpers.response(res, resultMoneyCase, res.statusCode, helpers.status.update, null)
           }).catch(err => {
