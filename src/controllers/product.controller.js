@@ -34,7 +34,7 @@ const product = {
   getAllProductNoPaging: (req, res) => {
     productModels.getAllProductNoPaging()
       .then(response => {
-        helpers.redisInstance().setex('getAllProducts', 60 * 60 * 12, JSON.stringify(response))
+        //helpers.redisInstance().setex('getAllProducts', 60 * 60 * 12, JSON.stringify(response))
         helpers.response(res, response, 200, helpers.status.found, null)
       }).catch(err => {
         helpers.response(res, [], err.statusCode, null, null, err)
@@ -67,7 +67,7 @@ const product = {
       .then(response => {
         productModels.getProductById(response.insertId)
           .then(response => {
-            helpers.redisInstance().del('getAllProducts')
+            //helpers.redisInstance().del('getAllProducts')
             const resultProduct = response
             helpers.response(res, resultProduct, res.statusCode, helpers.status.insert, null)
           }).catch(err => {
@@ -118,7 +118,7 @@ const product = {
         productModels.getProductById(id)
           .then(responseResult => {
             const resultProduct = responseResult
-            helpers.redisInstance().del('getAllProducts')
+            //helpers.redisInstance().del('getAllProducts')
             helpers.response(res, resultProduct, res.statusCode, helpers.status.update, null)
           }).catch(err => {
             helpers.response(res, [], err.statusCode, null, null, err)

@@ -17,7 +17,7 @@ const {
 
 router
   .get('/', verifyToken, isMemberOrCashierOrAdmin, productController.getAllProduct)
-  .get('/no-paging', verifyToken, isCashierOrAdmin, cacheAllProducts, productController.getAllProductNoPaging)
+  .get('/no-paging', verifyToken, isCashierOrAdmin, productController.getAllProductNoPaging)
   .post('/', verifyToken, isAdmin, uploadFile, checkProduct, productController.insertProduct)
   .patch('/:id', verifyToken, isAdmin, uploadFile, checkProduct, productController.updateProduct)
   .delete('/:id', verifyToken, isAdmin, productController.deleteProduct)
