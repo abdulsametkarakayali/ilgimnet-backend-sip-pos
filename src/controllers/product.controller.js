@@ -130,13 +130,13 @@ const product = {
 
   deleteProduct: (req, res) => {
     const id = req.params.id
-    productModels.getProductById(id)
+   /* productModels.getProductById(id)
       .then(response => {
         const resultProduct = response[0].image
         const pathDelete = resultProduct.replace(process.env.BASE_URL, '.')
         fs.unlinkSync(pathDelete, error => {
           if (error) throw error
-        })
+        })*/
         productModels.deleteProduct(id)
           .then(response => {
             const resultProduct = response
@@ -144,9 +144,9 @@ const product = {
           }).catch(err => {
             helpers.response(res, [], err.statusCode, null, null, err)
           })
-      }).catch(err => {
+     /* }).catch(err => {
         helpers.response(res, [], err.statusCode, null, null, err)
-      })
+      })*/
   },
 
   getProductById: (req, res) => {
