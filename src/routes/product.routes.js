@@ -20,7 +20,7 @@ router
   .get('/no-paging', verifyToken, isCashierOrAdmin, productController.getAllProductNoPaging)
   .post('/', verifyToken, isAdmin, uploadFile, checkProduct, productController.insertProduct)
   .patch('/:id', verifyToken, isAdmin, uploadFile, checkProduct, productController.updateProduct)
-  .delete('/:id', verifyToken, isAdmin,checkProduct, productController.deleteProduct)
+  .delete('/:id', verifyToken, isAdmin, productController.deleteProduct)
   .get('/:id', verifyToken, isMemberOrCashierOrAdmin, productController.getProductById)
 
 module.exports = router
