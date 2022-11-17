@@ -140,7 +140,6 @@ const product = {
         productModels.deleteProduct(id)
           .then(response => {
             const resultProduct = response
-            helpers.redisInstance().del('getAllProducts')
             helpers.response(res, resultProduct, res.statusCode, helpers.status.delete, null)
           }).catch(err => {
             helpers.response(res, [], err.statusCode, null, null, err)
