@@ -130,7 +130,7 @@ const product = {
 
   deleteProduct: (req, res) => {
     const id = req.params.id
-   /* productModels.getProductById(id)
+    /*productModels.getProductById(id)
       .then(response => {
         const resultProduct = response[0].image
         const pathDelete = resultProduct.replace(process.env.BASE_URL, '.')
@@ -140,6 +140,7 @@ const product = {
         productModels.deleteProduct(id)
           .then(response => {
             const resultProduct = response
+            helpers.redisInstance().del('getAllProducts')
             helpers.response(res, resultProduct, res.statusCode, helpers.status.delete, null)
           }).catch(err => {
             helpers.response(res, [], err.statusCode, null, null, err)
