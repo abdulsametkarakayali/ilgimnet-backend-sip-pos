@@ -55,6 +55,7 @@ const history = {
       shiftId,
     }] 
     const result = await moneyCaseModels.getLastInsertId()
+    console.log(result)
 /*    moneyCaseModels.getLastInsertId()
     .then(response => {
       shiftHistory = response[0].id
