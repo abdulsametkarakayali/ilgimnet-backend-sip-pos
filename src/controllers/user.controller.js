@@ -14,9 +14,9 @@ const user = {
       .getAllUser(id, order)
       .then((response) => {
         const newResponse = response
-        helpers
+        /*helpers
           .redisInstance()
-          .setex('getAllUsers', 60 * 60 * 12, JSON.stringify(newResponse))
+          .setex('getAllUsers', 60 * 60 * 12, JSON.stringify(newResponse))*/
         helpers.response(res, newResponse, 200, helpers.status.found, [])
       })
       .catch((err) => {

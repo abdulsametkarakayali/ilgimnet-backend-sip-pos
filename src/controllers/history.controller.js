@@ -39,7 +39,8 @@ const history = {
       priceAmount,
       paymentType,
       amount,
-      productId
+      productId,
+      shiftId
     } = req.body
     const newHistory = [{
       invoice,
@@ -51,18 +52,19 @@ const history = {
       priceAmount,
       paymentType,
       amount,
-      shiftId:0
+      shiftId,
     }] 
     moneyCaseModels.getLastInsertId()
     .then(response => {
       shiftHistory = response[0].id
+      shiftId = response[0].id
       console.log(response[0].id)
   }).catch(err => {
     console.log(err)
     helpers.response(res, [], err.statusCode, null, null, err)
   })
   newHistory[0].shiftId = shiftHistory
-    historyModels.insertHistory(...newHistory, shiftId = newHistory[0].shiftId )
+    historyModels.insertHistory(newHistory)
       .then(response => {
         const resultHistory = response
         //helpers.redisInstance().del('getAllHistories')
@@ -84,7 +86,7 @@ const history = {
                 quantity: quantityList[i],
                 discount: null,
                 total: quantityList[i] * orderPriceList[i],
-                orderDetailID: resultHistory.id
+                orderDetailID: resultHistory.id,
               })
               historyModels.insertOrderDetails(newOrder[i])
             })
