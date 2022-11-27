@@ -20,8 +20,8 @@ const {
 } = require('../middlewares/formErrorHandling')
 
 router
-  .get('/', verifyToken, isAdmin, cacheAllUsers, userController.getAllUser)
-  .get('/member', verifyToken, isCashierOrAdmin, cacheAllMember, userController.getAllMember)
+  .get('/', verifyToken, isAdmin,  userController.getAllUser)
+  .get('/member', verifyToken, isCashierOrAdmin, userController.getAllMember)
   .post('/', verifyToken, isAdmin, checkAddUser, userController.addUser)
   .patch('/profile/:id', verifyToken, isMemberOrCashierOrAdmin, uploadFile, userController.updateProfile)
   .patch('/change-password/:id', verifyToken, isMemberOrCashierOrAdmin, checkChangePassword, userController.changePassword)
