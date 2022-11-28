@@ -28,9 +28,9 @@ const user = {
       .geAllMember()
       .then((response) => {
         const newResponse = response
-        helpers
+        /*helpers
           .redisInstance()
-          .setex('getAllMember', 60 * 60 * 12, JSON.stringify(newResponse))
+          .setex('getAllMember', 60 * 60 * 12, JSON.stringify(newResponse))*/
         helpers.response(res, newResponse, 200, helpers.status.found, [])
       })
       .catch((err) => {
@@ -44,9 +44,9 @@ const user = {
       .then((response) => {
         const newRes = response[0]
         delete newRes.password
-        helpers
+       /* helpers
           .redisInstance()
-          .setex('getDetailUser', 60 * 60 * 12, JSON.stringify(newRes))
+          .setex('getDetailUser', 60 * 60 * 12, JSON.stringify(newRes))*/
         helpers.response(res, newRes, 200, helpers.status.found, [])
       })
       .catch((err) => {
