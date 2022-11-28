@@ -55,7 +55,7 @@ const history = {
       shiftId,
     }] 
     const result = await moneyCaseModels.getLastInsertId()
-    console.log("son açık kasa id", resutlt[0].id)
+    console.log("son açık kasa id", result[0].id)
 /*    moneyCaseModels.getLastInsertId()
     .then(response => {
       shiftHistory = response[0].id
@@ -65,8 +65,8 @@ const history = {
     console.log(err)
     helpers.response(res, [], err.statusCode, null, null, err)
   })*/
-  newHistory.shiftId  = resutlt[0].id
-  newHistory[0].shiftId = resutlt[0].id
+  newHistory.shiftId  = result[0].id
+  newHistory[0].shiftId = result[0].id
     historyModels.insertHistory(newHistory)
       .then(response => {
         const resultHistory = response
