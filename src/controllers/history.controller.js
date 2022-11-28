@@ -106,7 +106,7 @@ const history = {
   getBestSellingToday: async (req, res) => {
     
     const result = await moneyCaseModels.getLastInsertId()
-    console.log("son açık kasa id", result)
+    console.log("son açık kasa id", result.id)
     const id = result
     historyModels.getBestSellingToday(result.id)
       .then(response => {
