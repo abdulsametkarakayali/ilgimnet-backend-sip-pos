@@ -105,10 +105,10 @@ const history = {
   
   getBestSellingToday: async (req, res) => {
     
-    const result = await moneyCaseModels.getLastInsertId()
-    console.log("son açık kasa id", result.id)
-    const id = result
-    historyModels.getBestSellingToday(result.id)
+    const id = await moneyCaseModels.getLastInsertId()
+    console.log("son açık kasa id", id)
+    
+    historyModels.getBestSellingToday(id)
       .then(response => {
         const resultHistory = response
         //helpers.redisInstance().setex('getBestSellingToday', 60 * 60 * 12, JSON.stringify(resultHistory))
