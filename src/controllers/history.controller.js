@@ -108,7 +108,7 @@ const history = {
     const result = await moneyCaseModels.getLastInsertId()
     console.log("son açık kasa id", result)
     const id = result
-    historyModels.getBestSellingToday(result)
+    historyModels.getBestSellingToday(result.id)
       .then(response => {
         const resultHistory = response
         //helpers.redisInstance().setex('getBestSellingToday', 60 * 60 * 12, JSON.stringify(resultHistory))
