@@ -55,7 +55,7 @@ const history = {
       shiftId,
     }] 
     const result = await moneyCaseModels.getLastInsertId()
-    console.log("son açık kasa id", result)
+    console.log("son açık kasa id", resutlt[0].id)
 /*    moneyCaseModels.getLastInsertId()
     .then(response => {
       shiftHistory = response[0].id
@@ -65,7 +65,7 @@ const history = {
     console.log(err)
     helpers.response(res, [], err.statusCode, null, null, err)
   })*/
-  newHistory[0].shiftId = result
+  newHistory[0].shiftId = resutlt[0].id
     historyModels.insertHistory(newHistory)
       .then(response => {
         const resultHistory = response
@@ -105,10 +105,10 @@ const history = {
   
   getBestSellingToday: async (req, res) => {
     
-    const id = await moneyCaseModels.getLastInsertId()
-    console.log("son açık kasa id", id)
-    
-    historyModels.getBestSellingToday(id)
+    const resutlt = await moneyCaseModels.getLastInsertId()
+    console.log("son açık kasa id", resutlt[0].id)
+
+    historyModels.getBestSellingToday(resutlt[0].id)
       .then(response => {
         const resultHistory = response
         //helpers.redisInstance().setex('getBestSellingToday', 60 * 60 * 12, JSON.stringify(resultHistory))
